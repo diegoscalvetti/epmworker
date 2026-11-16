@@ -35,6 +35,17 @@ const projects = defineCollection({
     link: z.string().url().optional(),
     topics: z.array(topic).default(['other']),
     featured: z.boolean().default(false),
+    news: z
+      .array(
+        z.object({
+          date: z.string(), // YYYY-MM-DD or YYYY-MM
+          url: z.string().url().optional(),
+          images: z.array(z.string()).default([]), // paths under /public
+          en: z.object({ title: z.string(), text: z.string() }),
+          es: z.object({ title: z.string(), text: z.string() }),
+        }),
+      )
+      .default([]),
     en: localized,
     es: localized,
   }),

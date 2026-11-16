@@ -1,0 +1,232 @@
+# Projects shown on epmworker.com.
+# Each entry has English (en) and Chilean Spanish (es) text side by side.
+# Fields: id (unique, used in the URL), start, end (year or "present"), role, funder,
+# partners (optional), topics (epm, hdi, digital-twin, dpp, bim, education, other),
+# featured (optional, shows on the home page), link (optional), body (a few paragraphs, Markdown allowed).
+
+- id: trabajador-5-0
+  start: 2026
+  end: 2027
+  featured: true
+  topics: [epm, hdi]
+  funder: "ClaroLab · Centro de Innovación UC Anacleto Angelini & Claro Empresas"
+  partners: "ECC-UC, ClaroLab, Construction LAB 5.0"
+  en:
+    title: "Worker 5.0: an ethical EPM demonstrator enabled by 5G/IoT"
+    role: "Principal investigator"
+    summary: "A human-centred Electronic Performance Monitoring demonstrator for construction crews, running on ClaroLab's experimental 5G and IoT network and validated at Campus San Joaquín."
+    body: |
+      Worker 5.0 (Trabajador 5.0) tests how wearables and site sensors can measure productivity, health and safety on a construction site while keeping the worker in control of their own data.
+
+      The pilot uses ClaroLab's experimental connectivity (5G SA/NSA, NB-IoT, LTE-M) and advanced computing. It applies the Human-Data Interaction (HDI) principles from earlier research, so that what is measured, who sees it and how it is used are agreed with the crew before any data is collected.
+  es:
+    title: "Trabajador 5.0: demostrador ético de EPM habilitado por 5G/IoT"
+    role: "Investigador principal"
+    summary: "Un demostrador de Monitoreo Electrónico del Desempeño centrado en las personas, para cuadrillas de construcción, sobre la red experimental 5G e IoT de ClaroLab y validado en el Campus San Joaquín."
+    body: |
+      Trabajador 5.0 pone a prueba cómo los dispositivos vestibles (wearables) y los sensores en faena pueden medir productividad, salud y seguridad en una obra, manteniendo al trabajador en control de sus propios datos.
+
+      El piloto usa la conectividad experimental de ClaroLab (5G SA/NSA, NB-IoT, LTE-M) y su capacidad de cómputo avanzado. Aplica los principios de Interacción Humano-Datos (HDI) de investigaciones anteriores: qué se mide, quién lo ve y para qué se usa se acuerda con la cuadrilla antes de recolectar cualquier dato.
+
+- id: construction-lab-5-0
+  start: 2026
+  end: 2027
+  featured: true
+  topics: [epm, hdi, digital-twin]
+  funder: "Concurso VRI – Avanza UC 2025"
+  partners: "ECC-UC, DIGC-UC, DECON-UC, Chalmers University, Northumbria University, EC3, University of Turin, University of Salford, Universidad Austral, Universidade Federal da Bahia, GEQUALTEC/CONSTRUCT, LEAPS and industry partners"
+  en:
+    title: "Construction LAB 5.0 (CoLAB 5.0)"
+    role: "Principal investigator"
+    summary: "Digital tools to improve productivity, health and safety on construction sites, bringing together Chilean and international partners in a living lab at UC."
+    body: |
+      Construction LAB 5.0 is a 12-month programme to develop and test digital tools for construction sites, with a focus on the people who do the work.
+
+      It connects Electronic Performance Monitoring, Human-Data Interaction and incremental Digital Twins, and links the School of Civil Construction at UC with universities and companies in Europe and Latin America.
+  es:
+    title: "Construction LAB 5.0 (CoLAB 5.0)"
+    role: "Investigador principal"
+    summary: "Herramientas digitales para mejorar la productividad, la salud y la seguridad en faena, reuniendo socios chilenos e internacionales en un laboratorio vivo en la UC."
+    body: |
+      Construction LAB 5.0 es un programa de 12 meses para desarrollar y probar herramientas digitales en obras de construcción, con foco en las personas que ejecutan el trabajo.
+
+      Conecta el Monitoreo Electrónico del Desempeño, la Interacción Humano-Datos y los Gemelos Digitales incrementales, y vincula a la Escuela de Construcción Civil UC con universidades y empresas de Europa y Latinoamérica.
+
+- id: phd-epm-construction-workers
+  start: 2017
+  end: 2021
+  featured: true
+  topics: [epm]
+  funder: "Faculty of Engineering, University of Porto (FEUP)"
+  link: "https://repositorio-aberto.up.pt/handle/10216/134025"
+  en:
+    title: "PhD: Electronic Productivity Performance Monitoring of Construction Workers"
+    role: "Doctoral researcher"
+    summary: "Doctoral research that built the Worker 4.0 framework: sensors, process modelling and machine learning to measure craft workers' productivity on site."
+    body: |
+      The thesis studied how sensing technologies (real-time location systems, accelerometers and wearables) can measure what construction workers do, and how those measurements become useful key performance indicators.
+
+      It combined laboratory circuit simulations, machine-learning activity classification and surveys of craft workers and engineers. It also identified Human-Data Interaction as a condition for using EPM responsibly.
+  es:
+    title: "Doctorado: Monitoreo Electrónico del Desempeño Productivo de Trabajadores de la Construcción"
+    role: "Investigador doctoral"
+    summary: "Investigación doctoral que dio origen al marco Worker 4.0: sensores, modelación de procesos y aprendizaje automático para medir la productividad de la mano de obra en faena."
+    body: |
+      La tesis estudió cómo las tecnologías de sensorización (sistemas de localización en tiempo real, acelerómetros y wearables) pueden medir lo que hacen los trabajadores de la construcción, y cómo esas mediciones se transforman en indicadores clave de desempeño útiles.
+
+      Combinó simulaciones en circuito de laboratorio, clasificación de actividades con aprendizaje automático y encuestas a trabajadores e ingenieros. También identificó la Interacción Humano-Datos como condición para usar el EPM de forma responsable.
+
+- id: worker-4-0
+  start: 2015
+  end: 2021
+  topics: [epm]
+  funder: "Self-funded venture"
+  en:
+    title: "Worker 4.0® methodology"
+    role: "Founder and consultant"
+    summary: "A methodology to evaluate workers' performance with electronic devices and wearable technologies, developed alongside real-time location consulting (LEAPS) and mobile apps."
+    body: |
+      Worker 4.0® packaged years of field work into a repeatable method: define the tasks, instrument the crew with wearables or location tags, and turn the data into productivity indicators that site managers can act on.
+
+      The work ran in Brazil, Ireland and Portugal and fed directly into the doctoral research.
+  es:
+    title: "Metodología Worker 4.0®"
+    role: "Fundador y consultor"
+    summary: "Una metodología para evaluar el desempeño de los trabajadores con dispositivos electrónicos y tecnologías vestibles, desarrollada junto con consultoría en localización en tiempo real (LEAPS) y aplicaciones móviles."
+    body: |
+      Worker 4.0® convirtió años de trabajo en terreno en un método replicable: definir las tareas, equipar a la cuadrilla con wearables o etiquetas de localización y transformar los datos en indicadores de productividad que los jefes de obra puedan usar.
+
+      El trabajo se desarrolló en Brasil, Irlanda y Portugal y alimentó directamente la investigación doctoral.
+
+- id: beebadge
+  start: 2011
+  end: 2013
+  topics: [epm]
+  funder: "Sebrae-RS (Brazil), R&D public tender"
+  partners: "Pheitec"
+  en:
+    title: "BEEBADGE: Electronic Performance Monitoring of craft workforce"
+    role: "COO and partner director"
+    summary: "An early RTLS-based system to monitor the productivity of construction and steel-fabrication crews, deployed in industry projects worth USD 2.6 million."
+    body: |
+      BEEBADGE and its sister product CtrlSteel used real-time location badges to follow work on industrial construction sites. It was one of the first practical EPM deployments in Brazilian construction and set the questions the later research tried to answer: what to measure, how accurately, and with what consent.
+  es:
+    title: "BEEBADGE: Monitoreo Electrónico del Desempeño de la mano de obra"
+    role: "Director de operaciones y socio"
+    summary: "Uno de los primeros sistemas basados en RTLS para monitorear la productividad de cuadrillas de construcción y fabricación metálica, implementado en proyectos industriales por USD 2,6 millones."
+    body: |
+      BEEBADGE y su producto hermano CtrlSteel usaban credenciales de localización en tiempo real para seguir el avance del trabajo en faenas industriales. Fue una de las primeras aplicaciones prácticas de EPM en la construcción brasileña y planteó las preguntas que la investigación posterior buscó responder: qué medir, con qué precisión y con qué consentimiento.
+
+- id: msc-welders
+  start: 2014
+  end: 2016
+  topics: [epm]
+  funder: "Universidade Federal Fluminense (Brazil)"
+  en:
+    title: "MSc: electronic monitoring of welders' performance"
+    role: "Master's researcher"
+    summary: "Evaluation of an electronic methodology to monitor the performance of welders manufacturing pipe spools for refinery projects."
+    body: |
+      The master's thesis tested electronic monitoring in an industrial fabrication shop, comparing it with traditional measurement and identifying the factors that drive welders' labour productivity.
+  es:
+    title: "Magíster: monitoreo electrónico del desempeño de soldadores"
+    role: "Investigador de magíster"
+    summary: "Evaluación de una metodología electrónica para monitorear el desempeño de soldadores en la fabricación de spools de cañerías para proyectos de refinería."
+    body: |
+      La tesis de magíster probó el monitoreo electrónico en un taller de fabricación industrial, comparándolo con la medición tradicional e identificando los factores que determinan la productividad de los soldadores.
+
+- id: dpp-construction-waste
+  start: 2026
+  end: 2027
+  topics: [dpp]
+  funder: "Northumbria University (internal funding)"
+  partners: "Northumbria University, Universidade do Porto, LUT University, ECC-UC"
+  en:
+    title: "Digital Material Passport for construction waste"
+    role: "Co-investigator"
+    summary: "Bridging the EU Waste Framework Directive and the Digital Product Passport with a condition-based passport for construction waste materials."
+    body: |
+      ECC-UC contributes expertise on digital product passports and the digital tracing of construction materials.
+  es:
+    title: "Pasaporte Digital de Materiales para residuos de construcción"
+    role: "Co-investigador"
+    summary: "Un puente entre la Directiva Marco de Residuos de la UE y el Pasaporte Digital de Producto, mediante un pasaporte basado en la condición de los materiales de residuos de construcción."
+    body: |
+      ECC-UC aporta experiencia en pasaportes digitales de producto y en la trazabilidad digital de materiales de construcción.
+
+- id: vam-platform
+  start: 2026
+  end: 2028
+  topics: [other]
+  funder: "ANID – FONDEF IDeA I+D 2026"
+  partners: "ECC-UC, IMSAADPORTAS Asesorías Inmobiliarias SpA"
+  en:
+    title: "VAM Platform: sustainable value management in real estate"
+    role: "Researcher (backend and technology architecture)"
+    summary: "An integrated platform for sustainable value management in the real-estate industry using the Value Analysis Model (VAM), from TRL 2 to 5."
+    body: |
+      A 24-month FONDEF project led by ECC-UC. The role covers the backend and technology architecture of the platform.
+  es:
+    title: "Plataforma VAM: gestión sostenible de valor inmobiliario"
+    role: "Investigador (backend y arquitectura tecnológica)"
+    summary: "Plataforma integrada para la gestión sostenible de valor en la industria inmobiliaria mediante el Value Analysis Model (VAM), de TRL 2 a 5."
+    body: |
+      Proyecto FONDEF de 24 meses liderado por ECC-UC. El rol abarca el backend y la arquitectura tecnológica de la plataforma.
+
+- id: innovation-circular-competency
+  start: 2023
+  end: 2024
+  topics: [dpp, education]
+  funder: "EEA Grants – Bilateral Fund"
+  partners: "Construction Institute (FEUP), NTNU"
+  link: "https://eeagrants.org/archive/2014-2021/bilateral-initiatives/PT-BI098"
+  en:
+    title: "Innovation for Circular Competency"
+    role: "Principal investigator"
+    summary: "Accelerating GrowingCircle with Digital Product Passports awareness: workshops and an open course for engineering students and practitioners."
+    body: |
+      The project produced an open course on Digital Product Passports, delivered to Erasmus Mundus MBUILD students, and a workshop presented at the 2025 European Conference on Computing in Construction.
+  es:
+    title: "Innovación para la Competencia Circular"
+    role: "Investigador principal"
+    summary: "Acelerar GrowingCircle mediante la difusión de los Pasaportes Digitales de Producto: talleres y un curso abierto para estudiantes y profesionales de ingeniería."
+    body: |
+      El proyecto generó un curso abierto sobre Pasaportes Digitales de Producto, dictado a estudiantes del Erasmus Mundus MBUILD, y un taller presentado en la European Conference on Computing in Construction 2025.
+
+- id: certificare
+  start: 2020
+  end: 2025
+  topics: [bim]
+  funder: "Brazilian National Agency of Petroleum, Natural Gas and Biofuels (ANP)"
+  partners: "CERTI Foundation, Petrobras"
+  en:
+    title: "Certificare 1 & 2: digital commissioning"
+    role: "Co-principal investigator"
+    summary: "Digital transformation of commissioning and inspection processes for oil and gas plants, with process models, linked data and generative AI reporting."
+    body: |
+      Two consecutive R&D projects with a combined budget of about USD 5 million. They moved commissioning procedures from paper to process-oriented digital workflows, and led to publications on digital commissioning, linked sensor data and AI-assisted reporting.
+  es:
+    title: "Certificare 1 y 2: comisionamiento digital"
+    role: "Co-investigador principal"
+    summary: "Transformación digital de los procesos de comisionamiento e inspección de plantas de petróleo y gas, con modelos de procesos, datos enlazados e informes con IA generativa."
+    body: |
+      Dos proyectos consecutivos de I+D con un presupuesto conjunto cercano a USD 5 millones. Llevaron los procedimientos de comisionamiento del papel a flujos digitales orientados a procesos, y dieron origen a publicaciones sobre comisionamiento digital, datos de sensores enlazados e informes asistidos por IA.
+
+- id: growingcircle
+  start: 2020
+  end: 2022
+  topics: [dpp, digital-twin]
+  funder: "EEA Grants 2014–2021 – Environment, Climate Change and Low Carbon Economy"
+  partners: "Construction Institute (FEUP), NTNU"
+  en:
+    title: "GrowingCircle: integrated data for efficient and sustainable construction"
+    role: "Researcher"
+    summary: "Data templates, digital building logbooks and incremental digital twins to support circular construction."
+    body: |
+      GrowingCircle developed the incremental Digital Twin concept and data-template frameworks that link product data to circularity indicators across a building's life cycle.
+  es:
+    title: "GrowingCircle: datos integrados para una construcción eficiente y sostenible"
+    role: "Investigador"
+    summary: "Plantillas de datos, libros digitales del edificio y gemelos digitales incrementales para apoyar la construcción circular."
+    body: |
+      GrowingCircle desarrolló el concepto de Gemelo Digital incremental y marcos de plantillas de datos que vinculan la información de productos con indicadores de circularidad durante todo el ciclo de vida de un edificio.

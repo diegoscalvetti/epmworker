@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+import { t, path, otherLang, htmlLang, profiles, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Path after the language prefix, e.g. 'projects/'. Same in both languages. */
+  route?: string;
+  active?: 'home' | 'research' | 'projects' | 'publications' | 'about';
+}
+const { lang, title, description, route = '', active } = Astro.props;
+const other = otherLang(lang);
+const siteName = 'EPM Worker · Diego Calvetti';
+const fullTitle = title ? `${title} · ${siteName}` : `${siteName} · ${t(lang, 'site.tagline')}`;
+const desc = description ?? t(lang, 'site.description');
+const canonical = new URL(path(lang, route), Astro.site);
+const nav = [
+  { key: 'home', href: path(lang), label: t(lang, 'nav.home') },
+  { key: 'research', href: path(lang, 'epm/'), label: t(lang, 'nav.research') },
+  { key: 'projects', href: path(lang, 'projects/'), label: t(lang, 'nav.projects') },
+  { key: 'publications', href: path(lang, 'publications/'), label: t(lang, 'nav.publications') },
+  { key: 'about', href: path(lang, 'about/'), label: t(lang, 'nav.about') },
+] as const;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={htmlLang.es} href={new URL(path('es', route), Astro.site)} />
+    <link rel="alternate" hreflang={htmlLang.en} href={new URL(path('en', route), Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(path('es', route), Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/images/diego-calvetti.jpg', Astro.site)} />
+    <meta property="og:locale" content={htmlLang[lang].replace('-', '_')} />
+    <meta name="theme-color" content="#d9480f" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Diego Calvetti',
+      jobTitle: lang === 'es' ? 'Profesor Asistente' : 'Assistant Professor',
+      affiliation: { '@type': 'CollegeOrUniversity', name: 'Pontificia Universidad Católica de Chile' },
+      url: 'https://epmworker.com/',
+      image: 'https://epmworker.com/images/diego-calvetti.jpg',
+      sameAs: [profiles.orcid, profiles.scholar, profiles.linkedin, profiles.researchgate],
+      knowsAbout: ['Electronic Performance Monitoring', 'Human-Data Interaction', 'Construction 5.0', 'Digital Twins', 'Digital Product Passports'],
+    })} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t(lang, 'nav.skip')}</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={path(lang)}>
+          <img class="brand-mark" src="/favicon.svg" alt="" width="30" height="30" />
+          <span>EPM Worker<small>Diego Calvetti</small></span>
+        </a>
+        <nav class="nav" aria-label={lang === 'es' ? 'Principal' : 'Main'}>
+          {nav.map((n) => (
+            <a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a>
+          ))}
+          <a class="lang" href={path(other, route)} hreflang={htmlLang[other]} lang={htmlLang[other]}>{t(lang, 'nav.switch')}</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>© {year} Diego Calvetti. {t(lang, 'footer.rights')}<br />{t(lang, 'footer.built')}</div>
+        <div class="footer-links">
+          <a href={profiles.linkedin} rel="me">LinkedIn</a>
+          <a href={profiles.orcid} rel="me">ORCID</a>
+          <a href={profiles.scholar} rel="me">Google Scholar</a>
+          <a href={profiles.researchgate} rel="me">ResearchGate</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

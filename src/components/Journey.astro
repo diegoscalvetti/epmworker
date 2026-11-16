@@ -1,0 +1,124 @@
+---
+// Metro-map of Diego's path, drawn as inline SVG from src/data/journey.yaml.
+import { getCollection } from 'astro:content';
+import { path, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const stations = (await getCollection('journey')).map((s) => s.data).sort((a, b) => a.start - b.start);
+
+const TODAY = 2026;
+const lines = [
+  { key: 'academia', color: '#6d4bc8', es: 'Academia y servicio', en: 'Academia & service' },
+  { key: 'ventures', color: '#15a38a', es: 'Emprendimiento e I+D', en: 'Ventures & R&D' },
+  { key: 'industry', color: '#e07b22', es: 'Industria', en: 'Industry' },
+  { key: 'education', color: '#2b6cd4', es: 'Formación', en: 'Education' },
+] as const;
+
+// Piecewise time scale: recent years get more room because they are denser.
+const breaks: [number, number][] = [[1998, 0.24], [2010, 0.22], [2020, 0.6]];
+const END = 2027.4;
+const X0 = 190, X1 = 1180;
+const inchesTo = (y: number) => {
+  let total = 0;
+  for (let i = 0; i < breaks.length; i++) {
+    const [from, rate] = breaks[i];
+    const to = i + 1 < breaks.length ? breaks[i + 1][0] : END;
+    if (y <= from) break;
+    total += (Math.min(y, to) - from) * rate;
+  }
+  return total;
+};
+const scale = (X1 - X0) / inchesTo(END);
+const x = (y: number) => X0 + inchesTo(y) * scale;
+const lineY: Record<string, number> = { academia: 95, ventures: 215, industry: 335, education: 445 };
+const H = 560;
+const years = [1998, 2000, 2004, 2007, 2011, 2013, 2016, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+const endOf = (e: number | 'now' | undefined) => (e === 'now' ? END - 0.25 : e);
+const t = lang === 'es'
+  ? { title: 'De la obra a los datos de la construcción', sub: '1998 → hoy', here: 'Hoy', aria: 'Mapa de trayectoria profesional de Diego Calvetti' }
+  : { title: 'From the construction site to the data of construction', sub: '1998 → today', here: 'Today', aria: 'Career path map of Diego Calvetti' };
+---
+<figure class="journey">
+  <figcaption>
+    <h2>{t.title}</h2>
+    <p class="muted">{t.sub}</p>
+  </figcaption>
+  <div class="journey-scroll">
+    <svg viewBox={`0 0 1220 ${H}`} role="img" aria-label={t.aria}>
+      <defs>
+        {lines.map((l) => (
+          <marker id={`arrow-${l.key}`} viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill={l.color} />
+          </marker>
+        ))}
+      </defs>
+      {years.map((yr) => (
+        <g class="tick">
+          <line x1={x(yr)} x2={x(yr)} y1="40" y2={H - 40} />
+          <text x={x(yr)} y={H - 18} text-anchor="middle" class={yr === TODAY ? 'now' : ''}>{yr}</text>
+        </g>
+      ))}
+      <line class="today" x1={x(TODAY + 0.5)} x2={x(TODAY + 0.5)} y1="22" y2={H - 40} />
+      <text class="today-label" x={x(TODAY + 0.5)} y="16" text-anchor="middle">{t.here}</text>
+
+      {lines.map((l) => {
+        const y = lineY[l.key];
+        const own = stations.filter((s) => s.line === l.key);
+        return (
+          <g>
+            <line x1={X0 - 10} x2={X1} y1={y} y2={y} stroke={l.color} stroke-opacity="0.15" stroke-width="6" stroke-linecap="round" />
+            {own.filter((s) => s.end).map((s) => (
+              <line x1={x(s.start)} x2={x(endOf(s.end)!)} y1={y} y2={y} stroke={l.color} stroke-width="8" stroke-linecap="round"
+                marker-end={s.end === 'now' ? `url(#arrow-${l.key})` : undefined} />
+            ))}
+            <g class="line-label">
+              <rect x="6" y={y - 22} width="160" height="44" rx="22" fill={l.color} />
+              <text x="86" y={y + 5} text-anchor="middle">{l[lang]}</text>
+            </g>
+            {own.map((s) => {
+              const cx = x(s.start);
+              const above = s.side === 'above';
+              const shift = (s.tier - 1) * 30;
+              const ty = above ? y - 34 - shift : y + 38 + shift;
+              const oy = above ? y - 20 - shift : y + 52 + shift;
+              const title = lang === 'es' ? s.title_es : s.title_en;
+              const inner = (
+                <>
+                  <circle cx={cx} cy={y} r="10" fill="var(--surface)" stroke={l.color} stroke-width="4" />
+                  <text class="st-title" x={cx} y={ty} text-anchor="middle">{title}</text>
+                  <text class="st-org" x={cx} y={oy} text-anchor="middle">{s.org}</text>
+                </>
+              );
+              return s.project
+                ? <a href={path(lang, `projects/${s.project}/`)} class="station">{inner}</a>
+                : <g class="station">{inner}</g>;
+            })}
+          </g>
+        );
+      })}
+    </svg>
+  </div>
+  <ol class="sr-only">
+    {stations.map((s) => <li>{s.start}{s.end ? `–${s.end === 'now' ? t.here : s.end}` : ''}: {lang === 'es' ? s.title_es : s.title_en}, {s.org}</li>)}
+  </ol>
+</figure>
+
+<style>
+  .journey { margin: 0; }
+  .journey figcaption h2 { margin-bottom: 0.25rem; }
+  .journey-scroll { overflow-x: auto; margin-top: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); -webkit-overflow-scrolling: touch; }
+  svg { display: block; width: 100%; min-width: 980px; height: auto; font-family: var(--sans); }
+  .tick line { stroke: var(--line); stroke-width: 1; }
+  .tick text { font-size: 12px; fill: var(--muted); }
+  .tick text.now { font-weight: 700; fill: var(--ink); }
+  .today { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 5; }
+  .today-label { font-size: 12px; font-weight: 700; fill: var(--accent); }
+  .line-label text { fill: #fff; font-weight: 700; font-size: 14px; }
+  .st-title { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+  .st-org { font-size: 10.5px; fill: var(--muted); }
+  a.station:hover .st-title, a.station:focus .st-title { fill: var(--accent); text-decoration: underline; }
+  a.station circle { transition: r 0.15s; }
+  a.station:hover circle { r: 13; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>

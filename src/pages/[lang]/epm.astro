@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PubItem from '../../components/PubItem.astro';
+import { t, path, langs, profiles, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+
+const epmPubs = (await getCollection('publications'))
+  .filter((p) => p.data.topics.includes('epm') || p.data.topics.includes('hdi'))
+  .sort((a, b) => b.data.year - a.data.year);
+
+const c = {
+  es: {
+    title: '¿Qué es el Monitoreo Electrónico del Desempeño (EPM)?',
+    lead: 'El EPM usa sensores, dispositivos vestibles y plataformas de datos para medir cómo se ejecuta el trabajo en faena: dónde, cuánto, a qué ritmo y en qué condiciones.',
+    p1: 'En la construcción, la productividad se ha medido por décadas con cronómetro, planillas y muestreo del trabajo. Son métodos valiosos, pero lentos, puntuales y difíciles de escalar. El EPM permite medir de forma continua y objetiva, y entregar información a tiempo para decidir en la obra.',
+    pillarsTitle: 'Qué mide',
+    pillars: [
+      ['Productividad', 'Tiempos productivos, esperas, traslados y avance real por cuadrilla o actividad.'],
+      ['Salud', 'Posturas, esfuerzo físico, fatiga y exposición a condiciones de riesgo ergonómico.'],
+      ['Seguridad', 'Proximidad a maquinaria, ingreso a zonas restringidas y conductas inseguras.'],
+      ['Calidad y sostenibilidad', 'Relación entre productividad, consumo de recursos e impacto ambiental.'],
+    ],
+    techTitle: 'Con qué tecnologías',
+    tech: 'Sistemas de localización en tiempo real (RTLS, UWB, Bluetooth, GNSS), acelerómetros y sensores inerciales, wearables fisiológicos, visión por computador, redes IoT y 5G, y modelos de aprendizaje automático que convierten las señales en actividades e indicadores.',
+    hdiTitle: 'Las personas primero: Interacción Humano-Datos',
+    hdi: 'Medir a las personas trae preguntas éticas: privacidad, consentimiento, uso de los datos y confianza. Mi investigación propone la Interacción Humano-Datos (HDI) como condición para un EPM responsable: los trabajadores entienden qué se mide (legibilidad), deciden sobre sus datos (agencia) y pueden negociar su uso (negociabilidad). Sin eso, la tecnología no se adopta, o se adopta mal.',
+    chileTitle: '¿Por qué ahora en Chile?',
+    chile: 'La construcción chilena enfrenta brechas de productividad, escasez de mano de obra calificada y altas exigencias de seguridad laboral. Al mismo tiempo, el país avanza en conectividad 5G y en marcos de protección de datos personales. Es el momento de diseñar un EPM que sirva a empresas y trabajadores por igual, y de probarlo en obras reales, como en el proyecto Trabajador 5.0.',
+    pubsTitle: 'Publicaciones sobre EPM y HDI',
+    course: 'Curso abierto: Electronic Performance Monitoring (EPM) for Construction Management (Zenodo, en inglés)',
+  },
+  en: {
+    title: 'What is Electronic Performance Monitoring (EPM)?',
+    lead: 'EPM uses sensors, wearables and data platforms to measure how work is carried out on site: where, how much, at what pace and in what conditions.',
+    p1: 'In construction, productivity has been measured for decades with stopwatches, spreadsheets and work sampling. These methods are valuable but slow, occasional and hard to scale. EPM makes continuous, objective measurement possible and gets the information to site managers in time to act on it.',
+    pillarsTitle: 'What it measures',
+    pillars: [
+      ['Productivity', 'Productive time, waiting, travel and actual progress per crew or activity.'],
+      ['Health', 'Posture, physical effort, fatigue and exposure to ergonomic risk.'],
+      ['Safety', 'Proximity to plant, entry to restricted zones and unsafe behaviour.'],
+      ['Quality and sustainability', 'The link between productivity, resource use and environmental impact.'],
+    ],
+    techTitle: 'Which technologies',
+    tech: 'Real-time location systems (RTLS, UWB, Bluetooth, GNSS), accelerometers and inertial sensors, physiological wearables, computer vision, IoT and 5G networks, and machine-learning models that turn signals into activities and indicators.',
+    hdiTitle: 'People first: Human-Data Interaction',
+    hdi: 'Measuring people raises ethical questions: privacy, consent, how the data is used and whether it is trusted. My research puts forward Human-Data Interaction (HDI) as a condition for responsible EPM: workers understand what is measured (legibility), have a say over their data (agency) and can negotiate how it is used (negotiability). Without that, the technology is not adopted, or is adopted badly.',
+    chileTitle: 'Why now, in Chile?',
+    chile: 'Chilean construction faces productivity gaps, a shortage of skilled labour and demanding health and safety requirements. At the same time, the country is rolling out 5G and strengthening personal data protection. It is the right moment to design EPM that serves companies and workers alike, and to test it on real sites, as the Worker 5.0 project does.',
+    pubsTitle: 'Publications on EPM and HDI',
+    course: 'Open course: Electronic Performance Monitoring (EPM) for Construction Management (Zenodo)',
+  },
+}[lang];
+---
+<Base lang={lang} title={t(lang, 'nav.research')} description={c.lead} route="epm/" active="research">
+  <section class="section">
+    <div class="wrap prose">
+      <p class="kicker">EPM</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+      <p>{c.p1}</p>
+      <h2>{c.pillarsTitle}</h2>
+    </div>
+    <div class="wrap">
+      <div class="pillars">{c.pillars.map(([h, p]) => <div class="pillar"><b>{h}</b><p>{p}</p></div>)}</div>
+    </div>
+    <div class="wrap prose">
+      <h2>{c.techTitle}</h2>
+      <p>{c.tech}</p>
+      <div class="callout">
+        <h2 style="margin-top:0">{c.hdiTitle}</h2>
+        <p style="margin:0">{c.hdi}</p>
+      </div>
+      <h2>{c.chileTitle}</h2>
+      <p>{c.chile}</p>
+      <p><a href={path(lang, 'projects/trabajador-5-0/')}>Trabajador 5.0 →</a></p>
+      <p><a href="https://doi.org/10.5281/zenodo.14631989">{c.course}</a></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.pubsTitle}</h2>
+      <ul class="pub-list">{epmPubs.map((p) => <PubItem pub={p} lang={lang} />)}</ul>
+    </div>
+  </section>
+</Base>

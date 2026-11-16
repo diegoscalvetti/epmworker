@@ -1,0 +1,582 @@
+# Publications shown on epmworker.com.
+# Add new entries at the top. Fields: id (unique), type (journal | conference | thesis | other),
+# year, authors, title, venue, url (DOI link or other, optional), indexing (optional),
+# topics (any of: epm, hdi, digital-twin, dpp, bim, education, other), featured (optional, shows on the home page).
+
+- id: jnl-2026-03
+  type: journal
+  year: 2026
+  authors: "Calvetti, D., Méndez, D."
+  title: "An Exploratory Expert-Informed Framework for Integrating Digital Product Passports, Building Logbooks, Electronic Performance Monitoring, and Digital Twins in Industrialised Timber Construction"
+  venue: "Buildings. 16, 4411"
+  url: "https://doi.org/10.3390/buildings16214411"
+  indexing: "WoS and Scopus indexed (MDPI Buildings)"
+  topics: [epm, digital-twin, dpp]
+  featured: true
+- id: cnf-2026-02
+  type: conference
+  year: 2026
+  authors: "Santos, R.R. de L., Fileto, R., Calvetti, D."
+  title: "Knowledge Graph-Guided Entity Linking with LLMs for the Identification of Construction Cost Items"
+  venue: "ENIAC 2026 – Encontro Nacional de Inteligência Artificial e Computacional, at the 36th Brazilian Conference on Intelligent Systems (BRACIS 2026), Cuiabá, Brazil, 19–22 October 2026"
+  topics: [bim]
+- id: jnl-2026-02
+  type: journal
+  year: 2026
+  authors: "Ramos, R., Calvetti, D., Nascimento, D.L. de M., Bellon, F.G."
+  title: "Bridging semantic knowledge and generative AI: a modular framework for automated reporting in digital commissioning management"
+  venue: "International Journal of Generative Artificial Intelligence in Business"
+  url: "https://doi.org/10.1504/IJGAIB.2025.10074187"
+  topics: [bim]
+- id: cnf-2026-01
+  type: conference
+  year: 2026
+  authors: "Calvetti, D., Msawil, M., Xie, X., Li, J., Kifokeris, D., Calis, G., Demian, P., Nisbet, N., Nikolic, D., Rogage, K., Shayboun, M., Sujan, S., Mugnai, A., K., Soman, R., Munir, M."
+  title: "Human-Data Interaction (HDI) Technical Committee"
+  venue: "2026 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2026.438"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [hdi]
+- id: jnl-2026-01
+  type: journal
+  year: 2026
+  authors: "Mêda, P., Calvetti, D., Hjelseth, E., Corvacho, H., Sousa, H."
+  title: "European Sustainable Built Environment vision framework: critical review and expansion"
+  venue: "Smart and Sustainable Built Environment"
+  url: "https://doi.org/10.1108/SASBE-09-2025-0585"
+  indexing: "WoS: Construction & Building Technology, Q1 · Scopus: Building and Construction, Q1"
+  topics: [other]
+- id: cnf-2025-03
+  type: conference
+  year: 2025
+  authors: "Calvetti, D., Hjelseth, E., Mêda, P."
+  title: "Innovation for Circular Competency – Digital Product Passports Awareness Workshop"
+  venue: "2025 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2025.392"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [dpp, education]
+- id: jnl-2025-03
+  type: journal
+  year: 2025
+  authors: "Landim, V., Calvetti, D., Martins, J.P."
+  title: "From BIM to UAVs: A Systematic Review of Digital Solutions for Productivity Challenges in Construction"
+  venue: "Applied Sciences. 15(19), 10843"
+  url: "https://doi.org/10.3390/app151910843"
+  indexing: "WoS: Engineering (miscellaneous), Q2 · Scopus: Engineering, multidisciplinary, Q2"
+  topics: [epm, bim]
+- id: cnf-2025-02
+  type: conference
+  year: 2025
+  authors: "Gondim, I., Calvetti, D., Sousa, H."
+  title: "Built to Suit Contracts for Public Institutions in Brazil: A case study of a Performance-Based Approach to Durable, Accessible and Sustainable Facility Occupation"
+  venue: "7th International Congress on Recovery, Maintenance and Rehabilitation of Buildings-CIRMARE -. Lecture Notes in Civil Engineering (LNCE, volume 769)"
+  url: "https://doi.org/10.1007/978-3-032-08224-4_17"
+  indexing: "WoS: Conference Proceedings Citation Index · Scopus: Civil and Structural Engineering, Q4 - Lecture Notes in Civil Engineering"
+  topics: [other]
+- id: cnf-2025-01
+  type: conference
+  year: 2025
+  authors: "Targa, A., Calvetti, D., Mêda, P."
+  title: "BIM para Gestão e Diagnóstico de Resíduos de Construção e Demolição (RCD) Com o Uso da Tecnologia LIDAR-iPAD"
+  venue: "3º Simpósio Engenharia Civil 2025 - Universidade da Beira Interior"
+  topics: [dpp, bim]
+- id: jnl-2025-02
+  type: journal
+  year: 2025
+  authors: "Calvetti, D., Ferreira, M."
+  title: "Innovative Approaches to Productivity Monitoring: Integrating Work Sampling and Electronic Performance Monitoring (EPM)"
+  venue: "Organization, Technology and Management in Construction. Volume 17 (2025): Issue 1 (January 2025)"
+  url: "https://doi.org/10.2478/otmcj-2025-0009"
+  indexing: "WoS: Management, Q3 · Scopus: Building and Construction, Q2"
+  topics: [epm]
+  featured: true
+- id: jnl-2025-01
+  type: journal
+  year: 2025
+  authors: "Calvetti, D., Mêda, P., Hjelseth, E., Sousa, H."
+  title: "Incremental Digital Twin Framework: A Design Science Research Approach for Practical Deployment"
+  venue: "Automation in Construction. 170, 105954"
+  url: "https://doi.org/10.1016/j.autcon.2024.105954"
+  indexing: "WoS: Engineering, Civil, Q1 · Scopus: Building and Construction, Q1"
+  topics: [digital-twin]
+  featured: true
+- id: jnl-2024-05
+  type: journal
+  year: 2024
+  authors: "Calvetti, D., Kifokeris, D., Mêda, P., Sousa, H."
+  title: "Human-Data Interaction as a critical enabler of Electronic Performance Monitoring at construction sites"
+  venue: "Journal of Information Technology in Construction. 29, 722–749"
+  url: "https://doi.org/10.36680/j.itcon.2024.032"
+  indexing: "WoS: Engineering, Civil, Q1 · Scopus: Building and Construction, Q1"
+  topics: [epm, hdi]
+  featured: true
+- id: cnf-2024-09
+  type: conference
+  year: 2024
+  authors: "Calvetti, D., Mêda, P., De Sousa, H., Gonçalves, M.C., Faria, J.M.A., Da Costa, J.M."
+  title: "Experiencing Education 5.0 for Civil Engineering"
+  venue: "Procedia Computer Science. 232, 2416–2425"
+  url: "https://doi.org/10.1016/j.procs.2024.02.060"
+  indexing: "WoS: Conference Proceedings Citation Index · Scopus: Computer Science, CiteScore, 4.5"
+  topics: [education]
+- id: cnf-2024-08
+  type: conference
+  year: 2024
+  authors: "Calvetti, D., Mêda, P., Sousa, H."
+  title: "Electronic performance monitoring framework to quantify unhealthy and unsafe on-site behaviours"
+  venue: "Procedia Computer Science. 232, 274–283"
+  url: "https://doi.org/10.1016/j.procs.2024.01.027"
+  indexing: "WoS: Conference Proceedings Citation Index · Scopus: Computer Science, CiteScore, 4.5"
+  topics: [epm]
+  featured: true
+- id: jnl-2024-04
+  type: journal
+  year: 2024
+  authors: "Mêda, P., Calvetti, D., Sousa, H., Moreira, J."
+  title: "Data Discovery for Digital Building Logbook (DBL): Directly Implementing and Enabling a Smarter Urban Built Environment"
+  venue: "Urban Science. 8(4)"
+  url: "https://doi.org/10.3390/urbansci8040160"
+  indexing: "WoS: Urban Studies, Q2 · Scopus: Urban Studies, Q1"
+  topics: [digital-twin]
+- id: jnl-2024-03
+  type: journal
+  year: 2024
+  authors: "Mêda, P., Hjelseth, E., Calvetti, D., Sousa, H."
+  title: "Exploring the significance and priority of digital product passports implementation in building renovation projects targeting circular economy"
+  venue: "Smart and Sustainable Built Environment"
+  url: "https://doi.org/10.1108/SASBE-05-2024-0193"
+  indexing: "WoS: Construction & Building Technology, Q1 · Scopus: Building and Construction, Q1"
+  topics: [dpp]
+- id: jnl-2024-02
+  type: journal
+  year: 2024
+  authors: "Calvetti, D., Nascimento, D.L. de M., Filho, F.N.M. de A., Abreu, R.H.V., Papadopoulos, N.A."
+  title: "Linked data to streaming data sensors sources for direct access"
+  venue: "Brazilian Journal of Operations and Production Management. 21, 14"
+  url: "https://doi.org/10.14488/BJOPM.1993.2024"
+  indexing: "WoS: Operations Research & Management Science, Q3 · Scopus: Industrial and Manufacturing Engineering, Q2"
+  topics: [bim]
+- id: cnf-2024-07
+  type: conference
+  year: 2024
+  authors: "Calvetti, D., Gonçalves, M.C., Mêda, P., Sousa, H."
+  title: "Electronic Performance Monitoring at The Workplace: A Survey to Diagnose Engineer’s Awareness"
+  venue: "2024 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2024.218"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [epm]
+- id: cnf-2024-06
+  type: conference
+  year: 2024
+  authors: "Li, J., Shayboun, M., Calis, G., Calvetti, D., Demian, P., Kassem, M., Msawil, M., Soman, R."
+  title: "Toward a working theory for Human-Data Interaction (HDI) in the Built Environment (BE)"
+  venue: "2024 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2024.282"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [hdi]
+- id: cnf-2024-05
+  type: conference
+  year: 2024
+  authors: "Mêda, P., Calvetti, D., Hjelseth, E., Sousa, H"
+  title: "Digital Product Passports in Construction – Barriers and Opportunities at People, Process and Technology dimensions"
+  venue: "2024 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2024.233"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [dpp]
+- id: cnf-2024-04
+  type: conference
+  year: 2024
+  authors: "Calvetti, D., Sousa, H., Faria, J."
+  title: "Modelling masonry process activities to evaluate on-site productivity"
+  venue: "10th Euro-American Congress on Construction Pathology, Rehabilitation Technology and Heritage Management, REHABEND 2024"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [epm]
+- id: jnl-2024-01
+  type: journal
+  year: 2024
+  authors: "Calvetti, D."
+  title: "Urban Digital Twins to achieve Blue Zones in a Circular Built Environment"
+  venue: "Circular Economy. 2(3)"
+  url: "https://doi.org/10.55845/IYBO2513"
+  indexing: "WoS: Indexed"
+  topics: [digital-twin, dpp]
+- id: cnf-2024-03
+  type: conference
+  year: 2024
+  authors: "Castillo, J. G. B., Faria, J. A., Calvetti, D."
+  title: "Prototipo modular prefabricado de ‘madera maciza industrializada’ adaptable a las pendientes pronunciadas del norte de portugal"
+  venue: "III Congreso Ibero-Latinoamericano MAD de la Madera en la Construcción (CIMAD 24), Madrid, Spain"
+  url: "https://doi.org/10.20868/UPM.book.83748"
+  topics: [other]
+- id: cnf-2024-02
+  type: conference
+  year: 2024
+  authors: "Frison, C., Watashi, D., Marchiori, F., Galera, A., Sousa, H., Calvetti, D., Teixeira, J."
+  title: "Impactos do \"Efeito Pêndulo\" nas Licitações de Obras Públicas: Casos do Brasil, Espanha e Portugal"
+  venue: "5º Congresso Luso-Brasileiro de Materiais de Construção Sustentáveis. Congresso Construção 2024. CERIS, Lisboa, Portugal. Atas CERIS 01-2024. ISBN 978-989-95625-9-2"
+  topics: [other]
+- id: otp-2024-03
+  type: other
+  year: 2024
+  authors: "Barros, Sofia; Matos, Ana; Calvetti, Diego; Maia, Joana"
+  title: "Durability Assessment of High-Performance Concrete with Glass Powder for Façade Cladding"
+  venue: "17th U.PORTO Young Researchers Meeting (IJUP), Book of abstracts. International Conference Proceedings Book. IJUP: Book of abstracts"
+  topics: [other]
+- id: otp-2024-02
+  type: other
+  year: 2024
+  authors: "Silva, Daniela; Veloso, Rita; Souza, Andrea; Calvetti, Diego; Maia, Joana"
+  title: "Durability assessment of ETICS multilayer façade solutions"
+  venue: "17th U.PORTO Young Researchers Meeting (IJUP), Book of abstracts"
+  topics: [other]
+- id: otp-2024-01
+  type: other
+  year: 2024
+  authors: "Targa, A., Mêda, P., Calvetti, D."
+  title: "Exploring the use of BIM (Building Information Modelling) in enhancing sustainable project management practices in the Construction Industry: Diagnosis of Construction and Demolition Waste (CDW) using LiDAR-iPAD"
+  venue: "17th U.PORTO Young Researchers Meeting. International Conference Proceedings Book. IJUP: Poster presentation"
+  topics: [dpp, bim]
+- id: cnf-2024-01
+  type: conference
+  year: 2024
+  authors: "Mêda, P., Calvetti, D., Quiñones, R., Sousa, H."
+  title: "Streamlining Level(s) circularity and cost indicators estimation using Digital Product Passports"
+  venue: "Proceedings of the 41st International Conference of CIB W78"
+  url: "https://itc.scix.net/paper/w78-2024-137"
+  topics: [dpp]
+- id: jnl-2023-02
+  type: journal
+  year: 2023
+  authors: "Magalhães, P.M., Sousa, H., Calvetti, D., Hjelseth, E."
+  title: "Editorial – Special Issue: Circular Construction"
+  venue: "Proceedings of the Institution of Civil Engineers - Management, Procurement and Law. 176, 139–141"
+  url: "https://doi.org/10.1680/jmapl.2023.176.4.139"
+  indexing: "WoS: Management, Q3 · Scopus: Safety, Risk, Reliability and Quality, Q2"
+  topics: [dpp]
+- id: jnl-2023-01
+  type: journal
+  year: 2023
+  authors: "Mêda, P., Calvetti, D., Sousa, H."
+  title: "Exploring the Potential of iPad-LiDAR Technology for Building Renovation Diagnosis: A Case Study"
+  venue: "Buildings. 13, 456"
+  url: "https://doi.org/10.3390/buildings13020456"
+  indexing: "WoS: Engineering, Civil, Q2 · Scopus: Architecture, Q1"
+  topics: [dpp, bim]
+- id: cnf-2023-03
+  type: conference
+  year: 2023
+  authors: "Calvetti, D., Kifokeris, D., Mêda, P., Hjelseth, E."
+  title: "Human-data interaction in Incremental Digital Twin Construction"
+  venue: "2023 European Conference on Computing in Construction and the 40th International CIB W78 Conference"
+  url: "https://doi.org/10.35490/EC3.2023.276"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [hdi, digital-twin]
+- id: cnf-2023-02
+  type: conference
+  year: 2023
+  authors: "Calvetti, D., Nascimento, D.L.D.M., Araújo, F.M., Abreu, R.H.V., Papadopoulos, N.A., Demay, M.B., Tortorella, G."
+  title: "Interoperability framework for subsea sensors data"
+  venue: "2023 European Conference on Computing in Construction and the 40th International CIB W78 Conference"
+  url: "https://doi.org/10.35490/EC3.2023.259"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [bim]
+- id: cnf-2023-01
+  type: conference
+  year: 2023
+  authors: "Mêda, P., Munir, M., Calvetti, D., Sousa, H."
+  title: "Information needs in digital products passport – discussing data framework and reasonability"
+  venue: "2023 European Conference on Computing in Construction and the 40th International CIB W78 Conference"
+  url: "https://doi.org/10.35490/EC3.2023.244"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [other]
+- id: otp-2023-02
+  type: other
+  year: 2023
+  authors: "Nascimento, D., Magno, F., Roeder, A., Calvetti, D., Tortorella, G."
+  title: "Open BIM integration into Oil and Gas supply chain"
+  venue: "Production and Operations Management Society (POMS), 33rd Annual POMS-Conference. Research Abstract presentation - Abstract Code: 115-0279"
+  topics: [bim]
+- id: otp-2023-01
+  type: other
+  year: 2023
+  authors: "Nascimento, D., Magno, F., Roeder, A., Calvetti, D., Tortorella, G."
+  title: "Interoperability of data in the supply chain management"
+  venue: "Production and Operations Management Society (POMS), 33rd Annual POMS-Conference. Research Abstract presentation - Abstract Code: 115-0278"
+  topics: [bim]
+- id: cnf-2022-08
+  type: conference
+  year: 2022
+  authors: "Nascimento, D.L. de M., Roeder, A.B., Calvetti, D., Mustelier, A.M., Gonzalez, F.R., de Araújo, F.N.M."
+  title: "Industrial Plants Commissioning Procedures Using Digital Process-Oriented Architecture"
+  venue: "IFAC-PapersOnLine. 55, 2079–2084"
+  url: "https://doi.org/10.1016/j.ifacol.2022.10.014"
+  indexing: "WoS: Conference Proceedings Citation Index · Scopus: Computer Science, CiteScore, 1.7"
+  topics: [bim]
+- id: jnl-2022-01
+  type: journal
+  year: 2022
+  authors: "Calvetti, D., Sanhudo, L., Mêda, P., Martins, J.P., Gonçalves, M.C., Sousa, H."
+  title: "Construction Tasks Electronic Process Monitoring: Laboratory Circuit-Based Simulation Deployment"
+  venue: "Buildings. 12, 1174"
+  url: "https://doi.org/10.3390/buildings12081174"
+  indexing: "WoS: Engineering, Civil, Q2 · Scopus: Architecture, Q1"
+  topics: [epm]
+  featured: true
+- id: cnf-2022-07
+  type: conference
+  year: 2022
+  authors: "Calvetti, D., Mêda, P., Hjelseth, E., Sujan, S.F."
+  title: "Digital Twin for AECOO – Framework proposal and Use Cases"
+  venue: "14th European Conference on Product and Process Modelling European Conference on Product & Process Modelling (ECPPM 2022) - eWork and eBusiness in Architecture, Engineering and Construction 2022, CRC Press BOOK"
+  url: "https://doi.org/10.1201/9781003354222-28"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [digital-twin]
+- id: cnf-2022-06
+  type: conference
+  year: 2022
+  authors: "Mêda, P., Calvetti, D., Sousa, H., Hjelseth, E."
+  title: "What Comes First when implementing Data Templates? Refurbishment Case Study"
+  venue: "14th European Conference on Product and Process Modelling European Conference on Product & Process Modelling (ECPPM 2022) - eWork and eBusiness in Architecture, Engineering and Construction 2022, CRC Press BOOK"
+  url: "https://doi.org/10.1201/9781003354222-12"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [dpp]
+- id: cnf-2022-05
+  type: conference
+  year: 2022
+  authors: "Mêda, P., Teixeira, J., Calvetti, D., Ribeiro, Y., Moreira, J., Sousa, H."
+  title: "Legacy practices supporting BIM adoption in Portugal – Reflexions from a large Use Case"
+  venue: "14th European Conference on Product and Process Modelling European Conference on Product & Process Modelling (ECPPM 2022) - eWork and eBusiness in Architecture, Engineering and Construction 2022, CRC Press BOOK"
+  url: "https://doi.org/10.1201/9781003354222-86"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [bim]
+- id: cnf-2022-04
+  type: conference
+  year: 2022
+  authors: "Nascimento, D.L.M., Roeder, A.B., Araújo, F.N.M., Bechtold, C.L., Calvetti, D."
+  title: "Digitalisation initiative of O&G offshore projects contractual procedures"
+  venue: "14th European Conference on Product and Process Modelling European Conference on Product & Process Modelling (ECPPM 2022) - eWork and eBusiness in Architecture, Engineering and Construction 2022, CRC Press BOOK"
+  url: "https://doi.org/10.1201/9781003354222-77"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [bim]
+- id: cnf-2022-03
+  type: conference
+  year: 2022
+  authors: "Mêda, P., Calvetti, D., Kifokeris, D., Kassem, M."
+  title: "A process-based framework for Digital Building Logbooks"
+  venue: "2022 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2022.183"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [digital-twin]
+- id: cnf-2022-02
+  type: conference
+  year: 2022
+  authors: "Nascimento, D., Roeder, A., Lopes, A.C., Araújo, F.M. de, Calvetti, D."
+  title: "Empowering users to model and deploy process-engineering-based: an O&G commissioning system use case"
+  venue: "26th International Congress on Project Management and Engineering"
+  url: "https://www.scopus.com/pages/publications/85150388706"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [bim]
+- id: cnf-2022-01
+  type: conference
+  year: 2022
+  authors: "Nascimento, D.L. de M., Roeder, A.B., Calvetti, D., Lopez, A.C., Gonzalez, F.R., Araujo, F."
+  title: "Digital Commissioning Processes for the Oil and Gas Sector"
+  venue: "39th International Symposium on Automation and Robotics in Construction (ISARC 2022)"
+  url: "https://doi.org/10.22260/ISARC2022/0073"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [bim]
+- id: otp-2022-01
+  type: other
+  year: 2022
+  authors: "Rui Sousa, Diego Calvetti, Joaquim Moreira, Hipólito Sousa, Pedro Mêda"
+  title: "Construção Circular: GrowingCircle - Digitalização da informação para a economia circular"
+  venue: "Construção Magazine. No. 110 p. 12-14"
+  topics: [dpp]
+- id: jnl-2021-04
+  type: journal
+  year: 2021
+  authors: "Mêda, P., Calvetti, D., Hjelseth, E., Sousa, H."
+  title: "Incremental Digital Twin Conceptualisations Targeting Data-Driven Circular Construction"
+  venue: "Buildings. 11, 554"
+  url: "https://doi.org/10.3390/buildings11110554"
+  indexing: "WoS: Engineering, Civil, Q2 · Scopus: Architecture, Q1"
+  topics: [digital-twin, dpp]
+- id: jnl-2021-03
+  type: journal
+  year: 2021
+  authors: "Sanhudo, L., Calvetti, D., Martins, J.P., Ramos, N.M.M., Mêda, P., Gonçalves, M.C., Sousa, H."
+  title: "Activity classification using accelerometers and machine learning for complex construction worker activities"
+  venue: "Journal of Building Engineering. 35, 102001"
+  url: "https://doi.org/10.1016/j.jobe.2020.102001"
+  indexing: "WoS: Engineering, Civil, Q1 · Scopus: Building and Construction, Q1"
+  topics: [epm]
+  featured: true
+- id: jnl-2021-02
+  type: journal
+  year: 2021
+  authors: "Calvetti, D., Goncalves, M.C., Vahl, F., Mêda, P., Sousa, H."
+  title: "Labour productivity as a means for assessing environmental impact in the construction industry"
+  venue: "Environmental Engineering and Management Journal. J. 20, 781–790"
+  url: "https://doi.org/10.30638/eemj.2021.073"
+  indexing: "WoS: Environmental Sciences, Q4 · Scopus: Environmental Engineering, Q4"
+  topics: [epm]
+- id: jnl-2021-01
+  type: journal
+  year: 2021
+  authors: "Sidani, A., Matoseiro Dinis, F., Duarte, J., Sanhudo, L., Calvetti, D., Santos Baptista, J., Poças Martins, J., Soeiro, A."
+  title: "Recent tools and techniques of BIM-Based Augmented Reality: A systematic review"
+  venue: "Journal of Building Engineering. 42, 102500"
+  url: "https://doi.org/10.1016/j.jobe.2021.102500"
+  indexing: "WoS: Engineering, Civil, Q1 · Scopus: Building and Construction, Q1"
+  topics: [bim]
+- id: cnf-2021-06
+  type: conference
+  year: 2021
+  authors: "Calvetti, D., Mêda, P., Sousa, H., Gonçalves, M.C."
+  title: "Human-Data Interaction in Sensored Sites, Challenges of the Craft Workforce Dimension"
+  venue: "2021 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2021.171"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [epm, hdi]
+- id: cnf-2021-05
+  type: conference
+  year: 2021
+  authors: "Calvetti, D., Mêda, P., Gonçalves, M.C., Sousa, H."
+  title: "Mechanization of Construction Tasks: Level Assessment and Craft Workforce Awareness"
+  venue: "2021 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2021.172"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [epm]
+- id: cnf-2021-04
+  type: conference
+  year: 2021
+  authors: "Mêda, P., Hjelseth, E., Calvetti, D., Sousa, H."
+  title: "Enabling circular construction information flows using data templates – conceptual frameworks based on waste audit action"
+  venue: "2021 European Conference on Computing in Construction"
+  url: "https://doi.org/10.35490/EC3.2021.208"
+  indexing: "Scopus: Conference Proceedings Indexed"
+  topics: [dpp]
+- id: cnf-2021-03
+  type: conference
+  year: 2021
+  authors: "Calvetti, D., Mêda, P., de Sousa, H."
+  title: "Tech enablers to the EU Renovation Wave: Framework-based on the Communication (2020) 662"
+  venue: "Proceedings of the 38th International Conference of CIB W78"
+  url: "https://itc.scix.net/paper/w78-2021-paper-061"
+  topics: [dpp]
+- id: cnf-2021-02
+  type: conference
+  year: 2021
+  authors: "Mêda, P., Hjelseth, E., Calvetti, D., de Sousa, H."
+  title: "Data Templates and Digital Building Logbooks boosting Digital Twin in Construction"
+  venue: "Proceedings of the 38th International Conference of CIB W78"
+  url: "https://itc.scix.net/paper/w78-2021-paper-068"
+  topics: [digital-twin, dpp]
+- id: ths-2021-01
+  type: thesis
+  year: 2021
+  authors: "Calvetti, D."
+  title: "Electronic Productivity Performance Monitoring of Construction Workers"
+  venue: "Porto University, Faculty of Engineering. PhD Thesis"
+  url: "https://repositorio-aberto.up.pt/handle/10216/134025"
+  topics: [epm]
+  featured: true
+- id: cnf-2021-01
+  type: conference
+  year: 2021
+  authors: "Sousa, H., Mêda, P., Calvetti, D."
+  title: "Modelos de Gestão e Organização de Obras de Reabilitação do Edificado"
+  venue: "CONREA2021 - O Congresso da Reabilitação"
+  url: "https://hdl.handle.net/10216/140969"
+  topics: [other]
+- id: jnl-2020-02
+  type: journal
+  year: 2020
+  authors: "Calvetti, D., Mêda, P., Gonçalves, M.C., Sousa, H."
+  title: "Worker 4.0: The Future of Sensored Construction Sites"
+  venue: "Buildings. 10, 169"
+  url: "https://doi.org/10.3390/buildings10100169"
+  indexing: "WoS: Engineering, Civil, Q2 · Scopus: Architecture, Q1"
+  topics: [epm]
+  featured: true
+- id: jnl-2020-01
+  type: journal
+  year: 2020
+  authors: "Calvetti, D., Magalhães, P.N.M., Sujan, S.F., Gonçalves, M.C., Campos de Sousa, H.J."
+  title: "Challenges of upgrading craft workforce into Construction 4.0: framework and agreements"
+  venue: "Proceedings of the Institution of Civil Engineers - Management, Procurement and Law. 173, 158–165"
+  url: "https://doi.org/10.1680/jmapl.20.00004"
+  indexing: "WoS: Management, Q3 · Scopus: Safety, Risk, Reliability and Quality, Q2"
+  topics: [epm]
+- id: cnf-2020-03
+  type: conference
+  year: 2020
+  authors: "P M Magalhães, H Sousa, M C Gonçalves, D Calvetti, P Dias, F Camargo"
+  title: "People, process, technology in construction 4.0 - balancing knowledge, distrust and motivations"
+  venue: "Proceedings of the 37th International Conference of CIB W78"
+  url: "https://itc.scix.net/paper/w78-2020-paper-016"
+  topics: [other]
+- id: cnf-2020-02
+  type: conference
+  year: 2020
+  authors: "Calvetti, D., Sanhudo, L., Mêda, P., Gonçalves, M.C., Martins, J.P., Sousa, H., Ramos, N."
+  title: "BIM WD: A Dimensão dos Trabalhadores Integrada nos Modelos de Informação"
+  venue: "PT-BIM 2020 - 3º Congresso Português de “Building Information Modelling"
+  url: "https://doi.org/10.24840/978-972-752-272-9_0131-0140"
+  topics: [epm, bim]
+- id: cnf-2020-01
+  type: conference
+  year: 2020
+  authors: "Pina, R., Gonçalves, M.C., Magalhães, P.M., Calvetti, D."
+  title: "Informação da Construção em Usos BIM – Estudo de Caso"
+  venue: "PT-BIM 2020 - 3º Congresso Português de “Building Information Modelling"
+  url: "https://doi.org/10.24840/978-972-752-272-9_0749-0760"
+  topics: [bim]
+- id: cnf-2019-01
+  type: conference
+  year: 2019
+  authors: "Calvetti, D., Gonçalves, M.C., Mêda, P., Sousa, H."
+  title: "Sensing technologies embedding construction workers outcomes / key performance indicators"
+  venue: "Proceedings of the 36th International Conference of CIB W78"
+  url: "https://itc.scix.net/paper/w78-2019-paper-084"
+  topics: [epm]
+- id: jnl-2019-01
+  type: journal
+  year: 2019
+  authors: "Sidani, A., Dinis, F., Sanhudo, L., Duarte, J., Calvetti, D., Poças Martins, J., Soeiro, A."
+  title: "Impact of BIM-based augmented reality interfaces on construction projects: protocol for a systematic review"
+  venue: "International Journal of Occupational and Environmental Safety. 3, 38–45"
+  url: "https://doi.org/10.24840/2184-0954_003.002_0006"
+  topics: [bim]
+- id: jnl-2018-02
+  type: journal
+  year: 2018
+  authors: "Calvetti, D."
+  title: "Multivariate Statistical Analysis Approach to Cluster Construction Workers based on Labor Productivity Performance"
+  venue: "U.Porto Journal of Engineering. 4, 16–33"
+  url: "https://doi.org/10.24840/2183-6493_004.002_0002"
+  indexing: "Scopus: Engineering (miscellaneous), Q4"
+  topics: [epm]
+- id: jnl-2018-01
+  type: journal
+  year: 2018
+  authors: "Calvetti, D., Ferreira, M.L.R."
+  title: "Agile Methodology to Performance Measure and Identification of Impact Factors in the Labour Productivity of Industrial Workers"
+  venue: "U.Porto Journal of Engineering. 4, 49–64"
+  url: "https://doi.org/10.24840/2183-6493_004.002_0005"
+  indexing: "Scopus: Engineering (miscellaneous), Q4"
+  topics: [epm]
+- id: cnf-2018-01
+  type: conference
+  year: 2018
+  authors: "Calvetti, D., Gonçalves, M.C."
+  title: "Estado de arte da avaliação da produtividade na construção através de ferramentas e dispositivos"
+  venue: "Construção 2018. 3, 38–45"
+  topics: [epm]
+- id: ths-2016-01
+  type: thesis
+  year: 2016
+  authors: "Calvetti, D."
+  title: "Avaliação da metodologia eletrônica para monitoramento do desempenho de soldadores na fabricação de tubulações. Evaluation of the electronic methodology for monitoring the performance of welders in the manufacture of spools."
+  venue: "Universidade Federal Fluminense, Mestre em Montagem Industrial"
+  topics: [epm]

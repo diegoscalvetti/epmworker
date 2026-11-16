@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, langs, profiles, path, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+
+const c = {
+  es: {
+    bio: [
+      'Soy Profesor Asistente en la Escuela de Construcción Civil de la Facultad de Ingeniería de la Pontificia Universidad Católica de Chile y presido el Comité Técnico de Interacción Humano-Datos (HDI) del European Council on Computing in Construction (EC3).',
+      'Soy ingeniero civil, doctor en Ingeniería Civil por la Universidad de Porto (2021) y cuento con la certificación PMP desde 2011. Antes de la academia trabajé más de 20 años en gestión de proyectos, incluidos megaproyectos de refinería de Petrobras por más de USD 1.000 millones, y fundé emprendimientos de monitoreo de productividad como Worker 4.0®.',
+      'Mi investigación aborda la transformación digital de la construcción: Monitoreo Electrónico del Desempeño (EPM), Interacción Humano-Datos, Pasaportes Digitales de Producto, Gemelos Digitales, openBIM y Construcción 5.0. Soy investigador principal de Construction LAB 5.0 (Avanza UC), miembro integrado de CONSTRUCT/GEQUALTEC (FEUP) e investigador colaborador de CENAMAD.',
+    ],
+    roles: [
+      'Profesor Asistente, Escuela de Construcción Civil UC (desde 2025)',
+      'Profesor Asistente Invitado, FEUP, Universidad de Porto (desde 2022)',
+      'Presidente del Comité Técnico HDI, EC3',
+      'Investigador principal, Construction LAB 5.0 y Trabajador 5.0',
+    ],
+    edu: [
+      ['2021', 'Doctorado en Ingeniería Civil (Construcción)', 'Facultad de Ingeniería, Universidad de Porto, Portugal'],
+      ['2016', 'Magíster en Montaje Industrial', 'Universidad Federal Fluminense, Brasil'],
+      ['2011', 'Ingeniero Civil', 'ULBRA, Brasil · título reconocido por P.Porto, Portugal'],
+      ['2011', 'Project Management Professional (PMP)®', 'Project Management Institute'],
+      ['2000', 'Técnico en Construcción', 'Escuela Técnica Federal de Pelotas, Brasil'],
+    ],
+    teaching: 'En la UC dicto el Taller de Desafíos en Construcción (pregrado). En la FEUP he enseñado gestión de obras, economía y gestión, y calidad en la construcción en programas de magíster, incluido el Erasmus Mundus MBUILD, del que soy director adjunto. Mis apuntes y cursos están disponibles en abierto en Zenodo.',
+    langs: 'Idiomas: portugués (nativo), español, inglés e italiano (básico).',
+    mywork: 'Worker 4.0® y sus productos (Prodworker, ProdYoup, LEAPS) están en',
+  },
+  en: {
+    bio: [
+      'I am an Assistant Professor at the School of Civil Construction, Faculty of Engineering, Pontificia Universidad Católica de Chile, and Chair of the Human-Data Interaction (HDI) Technical Committee of the European Council on Computing in Construction (EC3).',
+      'I am a civil engineer with a PhD in Civil Engineering from the University of Porto (2021), and have held PMP certification since 2011. Before academia I spent more than 20 years in project management, including Petrobras refinery mega-projects worth over USD 1 billion, and founded productivity-monitoring ventures such as Worker 4.0®.',
+      'My research covers the digital transformation of construction: Electronic Performance Monitoring (EPM), Human-Data Interaction, Digital Product Passports, Digital Twins, openBIM and Construction 5.0. I am principal investigator of Construction LAB 5.0 (Avanza UC), an integrated member of CONSTRUCT/GEQUALTEC (FEUP) and a collaborating researcher at CENAMAD.',
+    ],
+    roles: [
+      'Assistant Professor, School of Civil Construction, UC Chile (since 2025)',
+      'Invited Assistant Professor, FEUP, University of Porto (since 2022)',
+      'Chair, HDI Technical Committee, EC3',
+      'Principal investigator, Construction LAB 5.0 and Worker 5.0',
+    ],
+    edu: [
+      ['2021', 'PhD in Civil Engineering (Construction)', 'Faculty of Engineering, University of Porto, Portugal'],
+      ['2016', 'MSc in Industrial Construction', 'Fluminense Federal University, Brazil'],
+      ['2011', 'Civil Engineer', 'ULBRA, Brazil · degree recognised by P.Porto, Portugal'],
+      ['2011', 'Project Management Professional (PMP)®', 'Project Management Institute'],
+      ['2000', 'Building Technician', 'Federal Technical School of Pelotas, Brazil'],
+    ],
+    teaching: 'At UC I teach the undergraduate Construction Challenges Workshop. At FEUP I have taught construction management, economics and management, and quality in construction on master\'s programmes, including the Erasmus Mundus MBUILD, of which I am assistant director. My lecture notes and courses are openly available on Zenodo.',
+    langs: 'Languages: Portuguese (native), Spanish, English and Italian (basic).',
+    mywork: 'Worker 4.0® and its products (Prodworker, ProdYoup, LEAPS) are at',
+  },
+}[lang];
+const profileLinks = [
+  ['ORCID', profiles.orcid], ['Google Scholar', profiles.scholar], ['ResearchGate', profiles.researchgate],
+  ['Web of Science', profiles.wos], ['LinkedIn', profiles.linkedin],
+];
+---
+<Base lang={lang} title={t(lang, 'about.title')} route="about/" active="about">
+  <section class="section">
+    <div class="wrap hero-grid" style="align-items:start">
+      <div class="prose">
+        <h1>{t(lang, 'about.title')}</h1>
+        {c.bio.map((p) => <p>{p}</p>)}
+        <h2>{t(lang, 'about.roles')}</h2>
+        <ul>{c.roles.map((r) => <li>{r}</li>)}</ul>
+        <h2>{t(lang, 'about.education')}</h2>
+        <dl class="facts">{c.edu.map(([y, d, o]) => <><dt>{y}</dt><dd><b>{d}</b><br /><span class="muted">{o}</span></dd></>)}</dl>
+        <h2>{t(lang, 'about.teaching')}</h2>
+        <p>{c.teaching}</p>
+        <p class="muted">{c.langs}</p>
+      </div>
+      <aside>
+        <img class="portrait" src="/images/diego-calvetti.jpg" width="640" height="640" alt="Diego Calvetti" />
+        <div class="card" style="margin-top:2rem">
+          <h3>{t(lang, 'about.profiles')}</h3>
+          <ul style="margin:0;padding-left:1.1rem">{profileLinks.map(([n, u]) => <li><a href={u} rel="me">{n}</a></li>)}</ul>
+        </div>
+        <div class="card" style="margin-top:1rem">
+          <h3>{t(lang, 'about.contact')}</h3>
+          <p>{t(lang, 'about.contact.body')}</p>
+          <p><a class="btn btn-primary" href={profiles.linkedin}>LinkedIn</a></p>
+          <p class="meta">{c.mywork} <a href={profiles.mywork40}>mywork40.com</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PubItem from '../../components/PubItem.astro';
+import { t, langs, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const years = [...new Set(pubs.map((p) => p.data.year))];
+const types = ['journal', 'conference', 'thesis', 'other'] as const;
+const topics = ['epm', 'hdi', 'digital-twin', 'dpp', 'bim', 'education'] as const;
+---
+<Base lang={lang} title={t(lang, 'pubs.title')} route="publications/" active="publications">
+  <section class="section">
+    <div class="wrap">
+      <h1>{t(lang, 'pubs.title')}</h1>
+      <p class="lead">{t(lang, 'pubs.lead')}</p>
+
+      <div class="filters" id="filters" hidden>
+        <input class="search" type="search" id="q" placeholder={t(lang, 'pubs.search')} aria-label={t(lang, 'pubs.search')} />
+        <fieldset data-group="type">
+          <legend>{t(lang, 'pubs.filter.type')}</legend>
+          <button type="button" class="chip" data-value="" aria-pressed="true">{t(lang, 'pubs.filter.all')}</button>
+          {types.map((ty) => <button type="button" class="chip" data-value={ty} aria-pressed="false">{t(lang, `type.${ty}`)}</button>)}
+        </fieldset>
+        <fieldset data-group="topic">
+          <legend>{t(lang, 'pubs.filter.topic')}</legend>
+          <button type="button" class="chip" data-value="" aria-pressed="true">{t(lang, 'pubs.filter.all')}</button>
+          {topics.map((tp) => <button type="button" class="chip" data-value={tp} aria-pressed="false">{t(lang, `topic.${tp}`)}</button>)}
+        </fieldset>
+        <p class="muted" style="margin:0" aria-live="polite"><b id="count">{pubs.length}</b> {t(lang, 'pubs.count')}</p>
+      </div>
+
+      {years.map((y) => (
+        <section class="year" data-year={y}>
+          <h2 class="year-head">{y}</h2>
+          <ul class="pub-list">{pubs.filter((p) => p.data.year === y).map((p) => <PubItem pub={p} lang={lang} />)}</ul>
+        </section>
+      ))}
+      <p id="none" class="muted" hidden>{t(lang, 'pubs.none')}</p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const box = document.getElementById('filters')!;
+  box.hidden = false;
+  const state: Record<string, string> = { type: '', topic: '' };
+  const q = document.getElementById('q') as HTMLInputElement;
+  const params = new URLSearchParams(location.search);
+  if (params.get('topic')) state.topic = params.get('topic')!;
+  if (params.get('type')) state.type = params.get('type')!;
+
+  function apply() {
+    const term = q.value.trim().toLowerCase();
+    let n = 0;
+    document.querySelectorAll<HTMLElement>('.pub').forEach((li) => {
+      const ok = (!state.type || li.dataset.type === state.type)
+        && (!state.topic || (li.dataset.topics || '').split(' ').includes(state.topic))
+        && (!term || (li.dataset.search || '').includes(term));
+      li.hidden = !ok;
+      if (ok) n++;
+    });
+    document.querySelectorAll<HTMLElement>('section.year').forEach((s) => {
+      s.hidden = !s.querySelector('.pub:not([hidden])');
+    });
+    document.getElementById('count')!.textContent = String(n);
+    document.getElementById('none')!.hidden = n > 0;
+    box.querySelectorAll<HTMLFieldSetElement>('fieldset').forEach((fs) => {
+      fs.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b.dataset.value === state[fs.dataset.group!]));
+      });
+    });
+  }
+  box.querySelectorAll<HTMLFieldSetElement>('fieldset').forEach((fs) => {
+    fs.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip');
+      if (!b) return;
+      state[fs.dataset.group!] = b.dataset.value || '';
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+  apply();
+</script>

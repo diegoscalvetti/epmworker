@@ -50,8 +50,8 @@ const fmtDate = (s: string) => {
                 <time datetime={n.date}>{fmtDate(n.date)}</time>
                 <h3>{n.url ? <a href={n.url} rel="noopener">{n[lang].title}</a> : n[lang].title}</h3>
                 {n.images.length > 0 && (
-                  <div class={`news-photos n${Math.min(n.images.length, 2)}`}>
-                    {n.images.slice(0, 2).map((src) => <img src={src} alt={n[lang].title} loading="lazy" decoding="async" />)}
+                  <div class={`news-photos n${Math.min(n.images.length, 4)}`}>
+                    {n.images.slice(0, 4).map((src) => <img src={src} alt={n[lang].title} loading="lazy" decoding="async" />)}
                   </div>
                 )}
                 <p>{n[lang].text}</p>

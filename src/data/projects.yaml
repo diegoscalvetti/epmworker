@@ -153,25 +153,6 @@
     body: |
       ECC-UC aporta experiencia en pasaportes digitales de producto y en la trazabilidad digital de materiales de construcción.
 
-- id: vam-platform
-  start: 2026
-  end: 2028
-  topics: [other]
-  funder: "ANID – FONDEF IDeA I+D 2026"
-  partners: "ECC-UC, IMSAADPORTAS Asesorías Inmobiliarias SpA"
-  en:
-    title: "VAM Platform: sustainable value management in real estate"
-    role: "Researcher (backend and technology architecture)"
-    summary: "An integrated platform for sustainable value management in the real-estate industry using the Value Analysis Model (VAM), from TRL 2 to 5."
-    body: |
-      A 24-month FONDEF project led by ECC-UC. The role covers the backend and technology architecture of the platform.
-  es:
-    title: "Plataforma VAM: gestión sostenible de valor inmobiliario"
-    role: "Investigador (backend y arquitectura tecnológica)"
-    summary: "Plataforma integrada para la gestión sostenible de valor en la industria inmobiliaria mediante el Value Analysis Model (VAM), de TRL 2 a 5."
-    body: |
-      Proyecto FONDEF de 24 meses liderado por ECC-UC. El rol abarca el backend y la arquitectura tecnológica de la plataforma.
-
 - id: innovation-circular-competency
   start: 2023
   end: 2024
@@ -191,25 +172,6 @@
     summary: "Acelerar GrowingCircle mediante la difusión de los Pasaportes Digitales de Producto: talleres y un curso abierto para estudiantes y profesionales de ingeniería."
     body: |
       El proyecto generó un curso abierto sobre Pasaportes Digitales de Producto, dictado a estudiantes del Erasmus Mundus MBUILD, y un taller presentado en la European Conference on Computing in Construction 2025.
-
-- id: certificare
-  start: 2020
-  end: 2025
-  topics: [bim]
-  funder: "Brazilian National Agency of Petroleum, Natural Gas and Biofuels (ANP)"
-  partners: "CERTI Foundation, Petrobras"
-  en:
-    title: "Certificare 1 & 2: digital commissioning"
-    role: "Co-principal investigator"
-    summary: "Digital transformation of commissioning and inspection processes for oil and gas plants, with process models, linked data and generative AI reporting."
-    body: |
-      Two consecutive R&D projects with a combined budget of about USD 5 million. They moved commissioning procedures from paper to process-oriented digital workflows, and led to publications on digital commissioning, linked sensor data and AI-assisted reporting.
-  es:
-    title: "Certificare 1 y 2: comisionamiento digital"
-    role: "Co-investigador principal"
-    summary: "Transformación digital de los procesos de comisionamiento e inspección de plantas de petróleo y gas, con modelos de procesos, datos enlazados e informes con IA generativa."
-    body: |
-      Dos proyectos consecutivos de I+D con un presupuesto conjunto cercano a USD 5 millones. Llevaron los procedimientos de comisionamiento del papel a flujos digitales orientados a procesos, y dieron origen a publicaciones sobre comisionamiento digital, datos de sensores enlazados e informes asistidos por IA.
 
 - id: growingcircle
   start: 2020

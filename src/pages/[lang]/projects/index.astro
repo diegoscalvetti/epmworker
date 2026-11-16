@@ -7,8 +7,9 @@ import { t, langs, type Lang } from '../../../i18n/ui';
 export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
 const lang = Astro.params.lang as Lang;
 const endYear = (e: number | 'present') => (e === 'present' ? 9999 : e);
+const rank = (id: string) => (id === 'construction-lab-5-0' ? 0 : id === 'trabajador-5-0' ? 1 : 2);
 const projects = (await getCollection('projects')).sort(
-  (a, b) => endYear(b.data.end) - endYear(a.data.end) || b.data.start - a.data.start,
+  (a, b) => rank(a.id) - rank(b.id) || endYear(b.data.end) - endYear(a.data.end) || b.data.start - a.data.start,
 );
 const epm = projects.filter((p) => p.data.topics.includes('epm'));
 const rest = projects.filter((p) => !p.data.topics.includes('epm'));
@@ -18,7 +19,7 @@ const rest = projects.filter((p) => !p.data.topics.includes('epm'));
     <div class="wrap">
       <h1>{t(lang, 'projects.title')}</h1>
       <p class="lead">{t(lang, 'projects.lead')}</p>
-      <h2 style="margin-top:2.5rem">{t(lang, 'topic.epm')}</h2>
+      <h2 style="margin-top:2.5rem">{lang === 'es' ? 'EPM y HDI' : 'EPM & HDI'}</h2>
       <div class="grid">{epm.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
       <h2 style="margin-top:3rem">{lang === 'es' ? 'Transformación digital de la construcción' : 'Digital transformation of construction'}</h2>
       <div class="grid">{rest.map((p) => <ProjectCard project={p} lang={lang} />)}</div>

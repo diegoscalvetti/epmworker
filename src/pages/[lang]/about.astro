@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Journey from '../../components/Journey.astro';
 import { t, langs, profiles, path, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
@@ -7,6 +8,7 @@ const lang = Astro.params.lang as Lang;
 
 const c = {
   es: {
+    intro: 'EPM Worker reúne quince años de trabajo sobre Monitoreo Electrónico del Desempeño: desde los primeros sistemas de localización en refinerías y obras industriales en Brasil, pasando por la investigación doctoral en Portugal, hasta los laboratorios de Construcción 5.0 en la UC. Esta página cuenta ese recorrido y quién está detrás.',
     bio: [
       'Soy Profesor Asistente en la Escuela de Construcción Civil de la Facultad de Ingeniería de la Pontificia Universidad Católica de Chile y presido el Comité Técnico de Interacción Humano-Datos (HDI) del European Council on Computing in Construction (EC3).',
       'Soy ingeniero civil, doctor en Ingeniería Civil por la Universidad de Porto (2021) y cuento con la certificación PMP desde 2011. Antes de la academia trabajé más de 20 años en gestión de proyectos, incluidos megaproyectos de refinería de Petrobras por más de USD 1.000 millones, y fundé emprendimientos de monitoreo de productividad como Worker 4.0®.',
@@ -30,6 +32,7 @@ const c = {
     mywork: 'Worker 4.0® y sus productos (Prodworker, ProdYoup, LEAPS) están en',
   },
   en: {
+    intro: 'EPM Worker brings together fifteen years of work on Electronic Performance Monitoring: from the first location systems on refinery and industrial sites in Brazil, through doctoral research in Portugal, to the Construction 5.0 labs at UC. This page tells that story and who is behind it.',
     bio: [
       'I am an Assistant Professor at the School of Civil Construction, Faculty of Engineering, Pontificia Universidad Católica de Chile, and Chair of the Human-Data Interaction (HDI) Technical Committee of the European Council on Computing in Construction (EC3).',
       'I am a civil engineer with a PhD in Civil Engineering from the University of Porto (2021), and have held PMP certification since 2011. Before academia I spent more than 20 years in project management, including Petrobras refinery mega-projects worth over USD 1 billion, and founded productivity-monitoring ventures such as Worker 4.0®.',
@@ -63,6 +66,7 @@ const profileLinks = [
     <div class="wrap hero-grid" style="align-items:start">
       <div class="prose">
         <h1>{t(lang, 'about.title')}</h1>
+        <p class="lead">{c.intro}</p>
         {c.bio.map((p) => <p>{p}</p>)}
         <h2>{t(lang, 'about.roles')}</h2>
         <ul>{c.roles.map((r) => <li>{r}</li>)}</ul>
@@ -86,5 +90,8 @@ const profileLinks = [
         </div>
       </aside>
     </div>
+  </section>
+  <section class="section">
+    <div class="wrap"><Journey lang={lang} /></div>
   </section>
 </Base>

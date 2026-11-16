@@ -1,7 +1,7 @@
-export const languages = { es: 'Español', en: 'English' } as const;
+export const languages = { en: 'English', es: 'Español' } as const;
 export type Lang = keyof typeof languages;
 export const langs = Object.keys(languages) as Lang[];
-export const defaultLang: Lang = 'es';
+export const defaultLang: Lang = 'en';
 
 export const htmlLang: Record<Lang, string> = { es: 'es-CL', en: 'en-GB' };
 
@@ -11,10 +11,10 @@ export const ui = {
     'site.description':
       'Diego Calvetti investiga el Monitoreo Electrónico del Desempeño (EPM) y la Interacción Humano-Datos en la construcción. Proyectos y publicaciones.',
     'nav.home': 'Inicio',
-    'nav.research': '¿Qué es EPM?',
+    'nav.research': 'EPM y HDI',
     'nav.projects': 'Proyectos',
     'nav.publications': 'Publicaciones',
-    'nav.about': 'Sobre mí',
+    'nav.about': 'Trayectoria',
     'nav.skip': 'Saltar al contenido',
     'nav.switch': 'Read in English',
     'home.kicker': 'Profesor Asistente · Escuela de Construcción Civil UC',
@@ -31,9 +31,9 @@ export const ui = {
     'home.featuredPubs': 'Publicaciones clave sobre EPM',
     'home.allProjects': 'Todos los proyectos',
     'home.allPubs': 'Todas las publicaciones',
-    'home.chile.title': 'Desde Santiago, para la construcción chilena',
+    'home.chile.title': 'EPM para la construcción chilena',
     'home.chile.body':
-      'Tras más de 20 años en proyectos en Brasil, Irlanda y Portugal, hoy trabajo en la Pontificia Universidad Católica de Chile. Busco colaborar con constructoras, mutualidades, gremios y estudiantes que quieran llevar el EPM a las obras chilenas de forma ética y útil.',
+      'Construction LAB 5.0 y Trabajador 5.0 se desarrollan en la Escuela de Construcción Civil UC, en Santiago. Buscamos constructoras, mutualidades, gremios, trabajadores y estudiantes que quieran probar el EPM en obras chilenas de forma ética y útil.',
     'home.chile.cta': 'Conversemos',
     'projects.title': 'Proyectos',
     'projects.lead':
@@ -67,7 +67,7 @@ export const ui = {
     'topic.bim': 'BIM y datos abiertos',
     'topic.education': 'Educación',
     'topic.other': 'Otros',
-    'about.title': 'Sobre mí',
+    'about.title': 'De la obra a los datos',
     'about.education': 'Formación',
     'about.roles': 'Cargos actuales',
     'about.profiles': 'Perfiles académicos',
@@ -83,10 +83,10 @@ export const ui = {
     'site.description':
       'Diego Calvetti researches Electronic Performance Monitoring (EPM) and Human-Data Interaction in construction. Projects and publications.',
     'nav.home': 'Home',
-    'nav.research': 'What is EPM?',
+    'nav.research': 'EPM & HDI',
     'nav.projects': 'Projects',
     'nav.publications': 'Publications',
-    'nav.about': 'About',
+    'nav.about': 'Background',
     'nav.skip': 'Skip to content',
     'nav.switch': 'Leer en español',
     'home.kicker': 'Assistant Professor · School of Civil Construction, UC Chile',
@@ -103,9 +103,9 @@ export const ui = {
     'home.featuredPubs': 'Key publications on EPM',
     'home.allProjects': 'All projects',
     'home.allPubs': 'All publications',
-    'home.chile.title': 'Based in Santiago, working with Chilean construction',
+    'home.chile.title': 'EPM for Chilean construction',
     'home.chile.body':
-      'After more than 20 years on projects in Brazil, Ireland and Portugal, I now work at the Pontificia Universidad Católica de Chile. I am keen to work with contractors, safety organisations, industry bodies and students who want to bring EPM to Chilean sites in an ethical and useful way.',
+      'Construction LAB 5.0 and Worker 5.0 are based at the School of Civil Construction, UC, in Santiago. We are looking for contractors, safety organisations, industry bodies, workers and students who want to try EPM on Chilean sites in an ethical and useful way.',
     'home.chile.cta': 'Get in touch',
     'projects.title': 'Projects',
     'projects.lead':
@@ -139,7 +139,7 @@ export const ui = {
     'topic.bim': 'BIM & open data',
     'topic.education': 'Education',
     'topic.other': 'Other',
-    'about.title': 'About',
+    'about.title': 'From the site to the data',
     'about.education': 'Education',
     'about.roles': 'Current roles',
     'about.profiles': 'Academic profiles',

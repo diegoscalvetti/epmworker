@@ -55,7 +55,6 @@
 - id: phd-epm-construction-workers
   start: 2017
   end: 2021
-  featured: true
   topics: [epm]
   funder: "Faculty of Engineering, University of Porto (FEUP)"
   link: "https://repositorio-aberto.up.pt/handle/10216/134025"

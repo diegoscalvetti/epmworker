@@ -7,7 +7,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      i18n: { defaultLocale: 'es', locales: { es: 'es-CL', en: 'en-GB' } },
+      i18n: { defaultLocale: 'en', locales: { en: 'en-GB', es: 'es-CL' } },
     }),
   ],
 });

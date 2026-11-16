@@ -52,7 +52,7 @@ const year = new Date().getFullYear();
       affiliation: { '@type': 'CollegeOrUniversity', name: 'Pontificia Universidad Católica de Chile' },
       url: 'https://epmworker.com/',
       image: 'https://epmworker.com/images/diego-calvetti.jpg',
-      sameAs: [profiles.orcid, profiles.scholar, profiles.linkedin, profiles.researchgate],
+      sameAs: [profiles.orcid, profiles.scholar, profiles.scopus, profiles.linkedin, profiles.researchgate],
       knowsAbout: ['Electronic Performance Monitoring', 'Human-Data Interaction', 'Construction 5.0', 'Digital Twins', 'Digital Product Passports'],
     })} />
   </head>
@@ -82,6 +82,7 @@ const year = new Date().getFullYear();
           <a href={profiles.linkedin} rel="me">LinkedIn</a>
           <a href={profiles.orcid} rel="me">ORCID</a>
           <a href={profiles.scholar} rel="me">Google Scholar</a>
+          <a href={profiles.scopus} rel="me">Scopus</a>
           <a href={profiles.researchgate} rel="me">ResearchGate</a>
         </div>
       </div>

@@ -172,6 +172,7 @@ export const profiles = {
   orcid: 'https://orcid.org/0000-0001-9893-0377',
   scholar: 'https://scholar.google.com/citations?user=U7Fhb-QAAAAJ',
   researchgate: 'https://www.researchgate.net/profile/Diego-Calvetti',
+  scopus: 'https://www.scopus.com/authid/detail.uri?authorId=57219401335',
   wos: 'https://www.webofscience.com/wos/author/record/HCI-1286-2022',
   mywork40: 'https://mywork40.com/',
 };

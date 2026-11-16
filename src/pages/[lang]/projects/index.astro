@@ -7,7 +7,7 @@ import { t, langs, type Lang } from '../../../i18n/ui';
 export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
 const lang = Astro.params.lang as Lang;
 const endYear = (e: number | 'present') => (e === 'present' ? 9999 : e);
-const rank = (id: string) => (id === 'construction-lab-5-0' ? 0 : id === 'trabajador-5-0' ? 1 : 2);
+const rank = (id: string) => (id === 'colab-5-0' ? 0 : id === 'trabajador-5-0' ? 1 : 2);
 const projects = (await getCollection('projects')).sort(
   (a, b) => rank(a.id) - rank(b.id) || endYear(b.data.end) - endYear(a.data.end) || b.data.start - a.data.start,
 );

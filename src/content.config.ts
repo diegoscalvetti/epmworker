@@ -35,6 +35,7 @@ const projects = defineCollection({
     link: z.string().url().optional(),
     topics: z.array(topic).default(['other']),
     featured: z.boolean().default(false),
+    publications: z.array(z.string()).optional(), // publication ids; overrides the automatic list
     news: z
       .array(
         z.object({

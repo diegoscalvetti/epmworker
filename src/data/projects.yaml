@@ -36,7 +36,7 @@
   funder: "Concurso VRI – Avanza UC 2025"
   news:
     - date: "2026-10-14"
-      images: ["/images/news/colab/2026-10-14-1.jpg", "/images/news/colab/2026-10-14-2.jpg"]
+      images: ["/images/news/colab/2026-10-14-o1.jpg", "/images/news/colab/2026-10-14-o2.jpg", "/images/news/colab/2026-10-14-o3.jpg", "/images/news/colab/2026-10-14-o4.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7516116488827772928/"
       en:
         title: "Opening the new CoLAB 5.0 facilities"
@@ -45,7 +45,7 @@
         title: "Presentamos las nuevas instalaciones de CoLAB 5.0"
         text: "Tras una sesión de retroalimentación de Avanza UC 2025 con los investigadores principales y la Vicerrectoría de Investigación, recorrimos con colegas de otras escuelas UC las nuevas instalaciones de CoLAB 5.0 en la Escuela de Construcción Civil."
     - date: "2026-07-16"
-      images: ["/images/news/colab/2026-07-16-1.jpg"]
+      images: ["/images/news/colab/2026-07-16-o1.jpg", "/images/news/colab/2026-07-16-o2.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7483448627600769024/"
       en:
         title: "CoLAB 5.0 technical workshop at EC3 2026"
@@ -70,7 +70,7 @@
         title: "Encuesta: cómo ven los trabajadores las tecnologías de monitoreo"
         text: "Encuesta anónima de 10 minutos para trabajadores de la construcción sobre cómo su rol, su experiencia y su percepción de la tecnología influyen en la aceptación de los sistemas de monitoreo del desempeño en obra."
     - date: "2026-06-05"
-      images: ["/images/news/colab/2026-06-05-1.jpg", "/images/news/colab/2026-06-05-2.jpg"]
+      images: ["/images/news/colab/2026-06-05-o1.jpg", "/images/news/colab/2026-06-05-o2.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7468612799917711360/"
       en:
         title: "Inviting partners at the IC2 brokerage event"
@@ -79,7 +79,7 @@
         title: "Invitación a colaborar en el brokerage de IC2"
         text: "Al cierre de IC2, una invitación abierta a sumarse a CoLAB 5.0: una red internacional de laboratorios digitales que comparten conocimiento sobre EPM y HDI en obra."
     - date: "2026-06-04"
-      images: ["/images/news/colab/2026-06-04-1.jpg", "/images/news/colab/2026-06-04-2.jpg"]
+      images: ["/images/news/colab/2026-06-04-o1.jpg", "/images/news/colab/2026-06-04-o2.jpg", "/images/news/colab/2026-06-04-o3.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7468318731706978305/"
       en:
         title: "Presenting CoLAB 5.0 at IC2"
@@ -88,7 +88,7 @@
         title: "Presentación de CoLAB 5.0 en IC2"
         text: "En el Innovation Industry Construction Congress se presentaron muchos proyectos de EPM. Nuestro mensaje: la Interacción Humano-Datos es el habilitador clave y debe integrarse desde el inicio."
     - date: "2026-04-03"
-      images: ["/images/news/colab/2026-04-03-1.jpg"]
+      images: ["/images/news/colab/2026-04-03-o1.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7445780613963399168/"
       en:
         title: "Brainstorming with co-researcher Pablo Martinez Rodriguez"
@@ -97,7 +97,7 @@
         title: "Sesión de trabajo con el co-investigador Pablo Martinez Rodriguez"
         text: "Una sesión para impulsar la adopción ética y efectiva de tecnologías digitales en las obras chilenas."
     - date: "2026-04-01"
-      images: ["/images/news/colab/2026-04-01-1.jpg", "/images/news/colab/2026-04-01-2.jpg"]
+      images: ["/images/news/colab/2026-04-01-o1.jpg", "/images/news/colab/2026-04-01-1.jpg"]
       url: "https://www.linkedin.com/feed/update/urn:li:activity:7445117373910597632/"
       en:
         title: "Keynote at DFBI: HDI as the enabler of EPM"

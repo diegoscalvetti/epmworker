@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PubItem from '../../components/PubItem.astro';
 import HeroArt from '../../components/HeroArt.astro';
+import IsoJourney from '../../components/IsoJourney.astro';
 import { t, path, langs, profiles, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
@@ -134,6 +135,10 @@ const c = {
       {featured.map((p) => <ProjectCard project={p} lang={lang} />)}
       </div>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><IsoJourney lang={lang} /></div>
   </section>
 
   <section class="section">

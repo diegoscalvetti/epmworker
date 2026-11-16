@@ -1,0 +1,22 @@
+# "My path" metro map on the home page. Based on DC_path_data.xlsx.
+# line: academia | ventures | industry | education. end: a year, "now", or omit for a one-off milestone.
+- { id: edu-2000, line: education, start: 2000, title_en: "Building Technician", title_es: "Técnico en Construcción", org: "Federal Technical School, Pelotas", side: below }
+- { id: edu-2011, line: education, start: 2011, title_en: "Civil Engineer", title_es: "Ingeniero Civil", org: "ULBRA · P.Porto", side: below }
+- { id: crt-2011, line: education, start: 2011, title_en: "PMP® certified", title_es: "Certificación PMP®", org: "PMI", side: above }
+- { id: edu-2016, line: education, start: 2016, title_en: "MSc Industrial Construction", title_es: "Magíster en Montaje Industrial", org: "Fluminense Federal University", side: below, tier: 2 }
+- { id: edu-2021, line: education, start: 2021, title_en: "PhD Civil Engineering", title_es: "Doctorado en Ingeniería Civil", org: "FEUP, University of Porto", side: below }
+- { id: crt-2024, line: education, start: 2024, title_en: "openBIM certification", title_es: "Certificación openBIM", org: "buildingSMART", side: below }
+- { id: emp-1998, line: industry, start: 1998, end: 2000, title_en: "Intern", title_es: "Práctica profesional", org: "SANEP, Pelotas", side: above }
+- { id: emp-2000, line: industry, start: 2000, end: 2004, title_en: "Technical Assistant", title_es: "Asistente técnico", org: "EcoRodovias · Ecosul", side: below }
+- { id: emp-2004, line: industry, start: 2004, end: 2007, title_en: "Consultant", title_es: "Consultor", org: "Estima Mercados", side: above }
+- { id: emp-2007, line: industry, start: 2007, end: 2011, title_en: "Contract Supervisor", title_es: "Supervisor de contratos", org: "Petrobras · USD 440M refinery", side: below }
+- { id: emp-2013, line: industry, start: 2013, end: 2016, title_en: "Lead Technical Consultant", title_es: "Consultor técnico líder", org: "Petrobras · USD 600M H₂ units", side: above }
+- { id: emp-2021b, line: industry, start: 2021, end: now, title_en: "BIM Researcher", title_es: "Investigador BIM", org: "Fundação CERTI · Certificare", side: below }
+- { id: emp-2011, line: ventures, start: 2011, end: 2014, title_en: "COO & Partner", title_es: "COO y socio", org: "Pheitec · BEEBADGE RTLS", side: above, project: beebadge }
+- { id: emp-2015, line: ventures, start: 2015, end: 2021, title_en: "Entrepreneur", title_es: "Emprendedor", org: "Worker 4.0® · LEAPS", side: below, project: worker-4-0 }
+- { id: emp-2021, line: ventures, start: 2021, end: 2022, title_en: "Researcher, DPP", title_es: "Investigador, DPP", org: "GrowingCircle · NTNU", side: above, project: growingcircle }
+- { id: emp-2022, line: ventures, start: 2022, end: 2025, title_en: "Researcher", title_es: "Investigador", org: "Construction Institute, U.Porto", side: below }
+- { id: prj-2026, line: ventures, start: 2026, end: 2027, title_en: "PI, CoLAB 5.0", title_es: "IP, CoLAB 5.0", org: "Avanza UC", side: above, project: construction-lab-5-0 }
+- { id: aff-2020, line: academia, start: 2020, end: now, title_en: "HDI Committee Chair", title_es: "Presidente Comité HDI", org: "EC3", side: above }
+- { id: emp-2022b, line: academia, start: 2022, end: now, title_en: "Invited Asst. Professor", title_es: "Profesor Asistente Invitado", org: "FEUP · MBUILD", side: below }
+- { id: emp-2025, line: academia, start: 2025, end: now, title_en: "Assistant Professor", title_es: "Profesor Asistente", org: "School of Civil Construction, UC", side: above }

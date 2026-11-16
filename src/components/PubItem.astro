@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { t, type Lang } from '../i18n/ui';
+interface Props { pub: CollectionEntry<'publications'>; lang: Lang; showType?: boolean }
+const { pub, lang, showType = true } = Astro.props;
+const d = pub.data;
+const haystack = `${d.title} ${d.authors} ${d.venue}`.toLowerCase();
+const authors = d.authors.replace(/Calvetti,?\s*D(iego)?\.?/g, '<b>$&</b>');
+---
+<li class="pub" data-type={d.type} data-topics={d.topics.join(' ')} data-search={haystack}>
+  <span class="pub-title">
+    {d.url ? <a href={d.url} rel="noopener" target="_blank">{d.title}</a> : d.title}
+  </span>
+  <span class="pub-authors" set:html={`${authors} (${d.year})`} />
+  <span class="pub-venue"><i>{d.venue}</i>{showType && <> · {t(lang, `type.${d.type}`)}</>}</span>
+  {d.topics.includes('epm') && <span class="tags"><span class="tag epm">EPM</span></span>}
+</li>

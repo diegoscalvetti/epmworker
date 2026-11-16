@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { t, path, type Lang } from '../i18n/ui';
+interface Props { project: CollectionEntry<'projects'>; lang: Lang }
+const { project, lang } = Astro.props;
+const d = project.data;
+const L = d[lang];
+const end = d.end === 'present' ? t(lang, 'projects.present') : d.end;
+---
+<article class="card">
+  <div class="meta">{d.start === end ? d.start : `${d.start}–${end}`} · {L.role}</div>
+  <h3><a href={path(lang, `projects/${project.id}/`)}>{L.title}</a></h3>
+  <p>{L.summary}</p>
+  <div class="tags">
+    {d.topics.map((tp) => <span class={`tag ${tp}`}>{t(lang, `topic.${tp}`)}</span>)}
+  </div>
+</article>

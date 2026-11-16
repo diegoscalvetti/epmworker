@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import Base from '../../../layouts/Base.astro';
+import PubItem from '../../../components/PubItem.astro';
+import { t, path, langs, type Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return langs.flatMap((lang) => projects.map((project) => ({ params: { lang, id: project.id }, props: { project } })));
+}
+const { project } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const d = project.data;
+const L = d[lang];
+const end = d.end === 'present' ? t(lang, 'projects.present') : d.end;
+const related = (await getCollection('publications'))
+  .filter((p) => p.data.topics.some((tp) => d.topics.includes(tp) && tp !== 'other') && p.data.year >= d.start - 1 && p.data.featured)
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, 5);
+---
+<Base lang={lang} title={L.title} description={L.summary} route={`projects/${project.id}/`} active="projects">
+  <section class="section">
+    <div class="wrap prose">
+      <p><a href={path(lang, 'projects/')}>← {t(lang, 'projects.back')}</a></p>
+      <h1>{L.title}</h1>
+      <p class="lead">{L.summary}</p>
+      <dl class="facts">
+        <dt>{t(lang, 'projects.period')}</dt><dd>{d.start}–{end}</dd>
+        <dt>{t(lang, 'projects.role')}</dt><dd>{L.role}</dd>
+        {d.funder && <><dt>{t(lang, 'projects.funder')}</dt><dd>{d.funder}</dd></>}
+        {d.partners && <><dt>{t(lang, 'projects.partners')}</dt><dd>{d.partners}</dd></>}
+      </dl>
+      <div class="tags" style="margin-bottom:1.5rem">{d.topics.map((tp) => <span class={`tag ${tp}`}>{t(lang, `topic.${tp}`)}</span>)}</div>
+      <Fragment set:html={marked.parse(L.body)} />
+      {d.link && <p><a href={d.link}>{t(lang, 'projects.link')} →</a></p>}
+      {related.length > 0 && (
+        <>
+          <h2>{t(lang, 'projects.related')}</h2>
+          <ul class="pub-list">{related.map((p) => <PubItem pub={p} lang={lang} />)}</ul>
+        </>
+      )}
+    </div>
+  </section>
+</Base>

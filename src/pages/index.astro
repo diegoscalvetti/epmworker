@@ -1,0 +1,24 @@
+---
+// Root: English (UK) is the default; visitors whose browser prefers Spanish go to /es/.
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EPM Worker · Electronic Performance Monitoring in construction</title>
+    <link rel="canonical" href="https://epmworker.com/en/" />
+    <link rel="alternate" hreflang="en-GB" href="https://epmworker.com/en/" />
+    <link rel="alternate" hreflang="es-CL" href="https://epmworker.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://epmworker.com/en/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      var first = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
+      location.replace(first.indexOf('es') === 0 ? '/es/' : '/en/');
+    </script>
+    <meta http-equiv="refresh" content="1; url=/en/" />
+  </head>
+  <body style="font-family:system-ui,sans-serif;padding:2rem">
+    <p><a href="/en/">English</a> · <a href="/es/">Español</a></p>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+---
+// Isometric illustration: the EPM story as floating platforms joined by a path,
+// from the first RTLS badges (2011) to Construction LAB 5.0 (2026–27).
+import { path, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const C30 = Math.cos(Math.PI / 6);
+const S30 = 0.5;
+/** Project isometric (u right-down, v left-down, z up) to screen, from an origin. */
+const P = (ox: number, oy: number, u: number, v: number, z = 0): [number, number] => [
+  ox + (u - v) * C30,
+  oy + (u + v) * S30 - z,
+];
+const pts = (a: [number, number][]) => a.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+
+/** Cuboid faces (top, left, right) for footprint (u0,v0)-(u0+du,v0+dv), from z0 to z0+h. */
+function box(ox: number, oy: number, u0: number, v0: number, du: number, dv: number, h: number, z0 = 0) {
+  const p = (u: number, v: number, z: number) => P(ox, oy, u, v, z);
+  const z1 = z0 + h;
+  return {
+    top: pts([p(u0, v0, z1), p(u0 + du, v0, z1), p(u0 + du, v0 + dv, z1), p(u0, v0 + dv, z1)]),
+    left: pts([p(u0, v0 + dv, z1), p(u0 + du, v0 + dv, z1), p(u0 + du, v0 + dv, z0), p(u0, v0 + dv, z0)]),
+    right: pts([p(u0 + du, v0, z1), p(u0 + du, v0 + dv, z1), p(u0 + du, v0 + dv, z0), p(u0 + du, v0, z0)]),
+  };
+}
+
+type Station = {
+  key: string; x: number; y: number; size: number; year: string; tag: string;
+  en: string; es: string; project?: string; color: string;
+};
+const stations: Station[] = [
+  { key: 'beebadge', x: 150, y: 470, size: 110, year: '2011', tag: '#RTLS', en: 'BEEBADGE · first site badges', es: 'BEEBADGE · primeras credenciales', project: 'beebadge', color: '#e07b22' },
+  { key: 'worker40', x: 360, y: 390, size: 110, year: '2015', tag: '#wearables', en: 'Worker 4.0® method', es: 'Método Worker 4.0®', project: 'worker-4-0', color: '#15a38a' },
+  { key: 'lab', x: 570, y: 470, size: 110, year: '2017–21', tag: '#machinelearning', en: 'PhD lab · activity recognition', es: 'Lab doctoral · reconocimiento de actividades', project: 'phd-epm-construction-workers', color: '#2b6cd4' },
+  { key: 'hdi', x: 770, y: 370, size: 110, year: '2021–24', tag: '#HDI', en: 'Human-Data Interaction', es: 'Interacción Humano-Datos', color: '#6d4bc8' },
+  { key: 'w50', x: 940, y: 465, size: 110, year: '2026', tag: '#5G', en: 'Worker 5.0 · ethical EPM pilot', es: 'Trabajador 5.0 · piloto de EPM ético', project: 'trabajador-5-0', color: '#d9480f' },
+  { key: 'colab', x: 1080, y: 220, size: 150, year: '2026–27', tag: '#Construction5.0', en: 'Construction LAB 5.0', es: 'Construction LAB 5.0', project: 'construction-lab-5-0', color: '#d9480f' },
+];
+const byKey = Object.fromEntries(stations.map((s) => [s.key, s]));
+
+/** Platform: a slab whose top face is a rhombus of half-width size*C30. */
+function slab(s: Station) {
+  const ox = s.x, oy = s.y - s.size * S30; // top vertex of the rhombus
+  return { ...box(ox, oy, 0, 0, s.size, s.size, 26, -26), ox, oy };
+}
+const ground = (s: Station, u: number, v: number, z = 0) => P(s.x, s.y - s.size * S30, u, v, z);
+
+// Path between platforms (front vertex of one to the next), drawn as a road ribbon.
+const order = ['beebadge', 'worker40', 'lab', 'hdi', 'w50', 'colab'];
+const front = (s: Station) => ground(s, s.size * 0.5, s.size * 0.5);
+const road = order.slice(1).map((k, i) => {
+  const a = front(byKey[order[i]]), b = front(byKey[k]);
+  const mx = (a[0] + b[0]) / 2, my = Math.max(a[1], b[1]) + 40;
+  return `M${a[0]},${a[1]} Q${mx},${my} ${b[0]},${b[1]}`;
+});
+
+const L = lang === 'es'
+  ? { title: 'El camino del EPM', sub: 'De las primeras credenciales de localización en obra a los laboratorios de Construcción 5.0.', aria: 'Ilustración isométrica del camino del EPM, de 2011 a 2027' }
+  : { title: 'The EPM journey', sub: 'From the first on-site location badges to the Construction 5.0 labs.', aria: 'Isometric illustration of the EPM journey, from 2011 to 2027' };
+
+// Small helpers for scene sprites
+const person = (x: number, y: number, hat: string, vest = '#f4a300', scale = 1) => ({ x, y, hat, vest, scale });
+---
+<figure class="iso">
+  <figcaption>
+    <h2>{L.title}</h2>
+    <p class="muted">{L.sub}</p>
+  </figcaption>
+  <div class="iso-scroll">
+    <svg viewBox="0 0 1240 640" role="img" aria-label={L.aria}>
+      <defs>
+        <linearGradient id="iso-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="var(--iso-bg1)" /><stop offset="1" stop-color="var(--iso-bg2)" />
+        </linearGradient>
+        <linearGradient id="holo" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5fd3ff" stop-opacity="0.75" /><stop offset="1" stop-color="#5fd3ff" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <rect width="1240" height="640" rx="24" fill="url(#iso-bg)" />
+      <!-- faint isometric grid -->
+      <g class="grid-lines">
+        {Array.from({ length: 22 }, (_, i) => <line x1={-200 + i * 80} y1="640" x2={-200 + i * 80 + 640 / Math.tan(Math.PI / 6)} y2="0" />)}
+        {Array.from({ length: 22 }, (_, i) => <line x1={i * 80} y1="640" x2={i * 80 - 640 / Math.tan(Math.PI / 6)} y2="0" />)}
+      </g>
+
+      <!-- road -->
+      {road.map((d) => <><path d={d} class="road" /><path d={d} class="road-line" /></>)}
+
+      {stations.map((s) => {
+        const sl = slab(s);
+        const top = s.y - s.size * S30;
+        const content = (
+          <g class="station">
+            <ellipse cx={s.x} cy={s.y + s.size * S30 + 40} rx={s.size * 0.85} ry={s.size * 0.18} class="shadow" />
+            <polygon points={sl.left} class="face-left" />
+            <polygon points={sl.right} class="face-right" />
+            <polygon points={sl.top} class="face-top" />
+            <polygon points={sl.top} fill="none" stroke={s.color} stroke-width="2.5" stroke-opacity="0.55" />
+            {/* scenes */}
+            {s.key === 'beebadge' && (() => {
+              const f = box(sl.ox, sl.oy, 20, 25, 45, 35, 70);
+              const g1 = ground(s, 80, 60), g2 = ground(s, 70, 88);
+              return <>
+                <polygon points={f.left} class="steel-l" /><polygon points={f.right} class="steel-r" /><polygon points={f.top} class="steel-t" />
+                {[0, 1, 2].map((i) => <line x1={P(sl.ox, sl.oy, 20, 60, 20 + i * 22)[0]} y1={P(sl.ox, sl.oy, 20, 60, 20 + i * 22)[1]} x2={P(sl.ox, sl.oy, 65, 60, 20 + i * 22)[0]} y2={P(sl.ox, sl.oy, 65, 60, 20 + i * 22)[1]} class="beam" />)}
+                <Fragment set:html={`<g class="worker" transform="translate(${g1[0]} ${g1[1]})"><rect x="-5" y="-22" width="10" height="14" rx="3" fill="#f4a300"/><circle cy="-27" r="5" fill="#c98e6b"/><path d="M-6 -28 Q0 -36 6 -28Z" fill="#fff"/><rect x="-3" y="-18" width="6" height="5" fill="#d9480f"/><rect x="-5" y="-8" width="4" height="8" fill="#33415c"/><rect x="1" y="-8" width="4" height="8" fill="#33415c"/></g>`} />
+                <Fragment set:html={`<g class="worker" transform="translate(${g2[0]} ${g2[1]})"><rect x="-5" y="-22" width="10" height="14" rx="3" fill="#f4a300"/><circle cy="-27" r="5" fill="#8d5a3b"/><path d="M-6 -28 Q0 -36 6 -28Z" fill="#2b6cd4"/><rect x="-3" y="-18" width="6" height="5" fill="#d9480f"/><rect x="-5" y="-8" width="4" height="8" fill="#33415c"/><rect x="1" y="-8" width="4" height="8" fill="#33415c"/></g>`} />
+                <g class="pulse"><path d={`M${g1[0] + 8},${g1[1] - 34} q10 -8 0 -16`} /><path d={`M${g1[0] + 14},${g1[1] - 38} q16 -12 0 -26`} /></g>
+                {/* anchor antenna */}
+                <line x1={ground(s, 95, 15)[0]} y1={ground(s, 95, 15)[1]} x2={ground(s, 95, 15)[0]} y2={ground(s, 95, 15)[1] - 55} class="mast" />
+                <circle cx={ground(s, 95, 15)[0]} cy={ground(s, 95, 15)[1] - 58} r="5" fill="#e07b22" />
+              </>;
+            })()}
+            {s.key === 'worker40' && (() => {
+              const g = ground(s, 55, 55);
+              const ph = box(sl.ox, sl.oy, 15, 70, 25, 18, 16);
+              return <>
+                <polygon points={ph.left} class="desk-l" /><polygon points={ph.right} class="desk-r" /><polygon points={ph.top} class="desk-t" />
+                <Fragment set:html={`<g transform="translate(${g[0]} ${g[1]})"><ellipse cy="0" rx="12" ry="4" fill="#000" opacity=".12"/><rect x="-8" y="-34" width="16" height="22" rx="4" fill="#15a38a"/><path d="M-8 -26 H8 M-8 -20 H8" stroke="#fff" stroke-width="2"/><rect x="-7" y="-12" width="6" height="12" fill="#33415c"/><rect x="1" y="-12" width="6" height="12" fill="#33415c"/><circle cy="-41" r="7" fill="#c98e6b"/><path d="M-9 -42 Q0 -54 9 -42Z" fill="#fff" stroke="#33415c" stroke-width=".8"/><path d="M8 -30 L16 -22" stroke="#15a38a" stroke-width="5" stroke-linecap="round"/><rect x="13" y="-25" width="6" height="5" rx="1.5" fill="#d9480f"/></g>`} />
+                {/* phone card */}
+                <g transform={`translate(${ground(s, 100, 30)[0]} ${ground(s, 100, 30)[1] - 70})`}>
+                  <rect x="-16" y="0" width="32" height="54" rx="6" class="card-bg" />
+                  <rect x="-10" y="10" width="20" height="4" rx="2" fill="#15a38a" />
+                  <rect x="-10" y="18" width="14" height="4" rx="2" fill="#2b6cd4" />
+                  <rect x="-10" y="26" width="18" height="4" rx="2" fill="#e07b22" />
+                  <circle cx="0" cy="43" r="4" fill="#15a38a" />
+                </g>
+              </>;
+            })()}
+            {s.key === 'lab' && (() => {
+              const d = box(sl.ox, sl.oy, 20, 20, 50, 28, 18);
+              const scr = ground(s, 45, 25, 18);
+              return <>
+                <polygon points={d.left} class="desk-l" /><polygon points={d.right} class="desk-r" /><polygon points={d.top} class="desk-t" />
+                <g transform={`translate(${scr[0]} ${scr[1]})`}>
+                  <rect x="-26" y="-40" width="52" height="34" rx="3" class="screen" />
+                  <polyline points="-20,-14 -12,-26 -4,-18 4,-32 12,-20 20,-28" fill="none" stroke="#5fd3ff" stroke-width="2" />
+                </g>
+                {/* circuit cones */}
+                {[[30, 85], [60, 95], [90, 80]].map(([u, v]) => { const c = ground(s, u, v); return <path d={`M${c[0] - 5},${c[1]} L${c[0]},${c[1] - 14} L${c[0] + 5},${c[1]} Z`} fill="#e07b22" />; })}
+                <path d={`M${ground(s, 30, 85)[0]},${ground(s, 30, 85)[1]} L${ground(s, 60, 95)[0]},${ground(s, 60, 95)[1]} L${ground(s, 90, 80)[0]},${ground(s, 90, 80)[1]}`} stroke="#e07b22" stroke-dasharray="3 4" fill="none" />
+                <Fragment set:html={(() => { const g = ground(s, 75, 60); return `<g transform="translate(${g[0]} ${g[1]})"><rect x="-5" y="-22" width="10" height="14" rx="3" fill="#2b6cd4"/><circle cy="-27" r="5" fill="#c98e6b"/><path d="M-6 -28 Q0 -36 6 -28Z" fill="#f4a300"/><rect x="-5" y="-8" width="4" height="8" fill="#33415c"/><rect x="1" y="-8" width="4" height="8" fill="#33415c"/></g>`; })()} />
+              </>;
+            })()}
+            {s.key === 'hdi' && (() => {
+              const c = ground(s, 55, 55);
+              return <>
+                <g transform={`translate(${c[0]} ${c[1] - 62})`}>
+                  <ellipse cx="0" cy="62" rx="40" ry="12" fill="#6d4bc8" opacity="0.18" />
+                  <path d="M0 -6 L30 6 V28 C30 46 16 56 0 62 C-16 56 -30 46 -30 28 V6 Z" fill="#6d4bc8" />
+                  <path d="M-12 28 l9 9 l17 -19" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                {[[22, 80, '#f4a300'], [88, 30, '#15a38a'], [92, 80, '#2b6cd4']].map(([u, v, col]) => {
+                  const g = ground(s, u as number, v as number);
+                  return <Fragment set:html={`<g transform="translate(${g[0]} ${g[1]})"><rect x="-5" y="-22" width="10" height="14" rx="3" fill="${col}"/><circle cy="-27" r="5" fill="#b07a58"/><rect x="-5" y="-8" width="4" height="8" fill="#33415c"/><rect x="1" y="-8" width="4" height="8" fill="#33415c"/></g>`} />;
+                })}
+                <path d={`M${ground(s, 22, 80)[0]},${ground(s, 22, 80)[1] - 30} Q${c[0]},${c[1] - 110} ${ground(s, 92, 80)[0]},${ground(s, 92, 80)[1] - 30}`} class="flow" />
+              </>;
+            })()}
+            {s.key === 'w50' && (() => {
+              const base = ground(s, 80, 25);
+              const g = ground(s, 45, 70);
+              return <>
+                <g class="tower">
+                  <line x1={base[0] - 10} y1={base[1]} x2={base[0]} y2={base[1] - 90} />
+                  <line x1={base[0] + 10} y1={base[1]} x2={base[0]} y2={base[1] - 90} />
+                  {[20, 40, 60].map((h) => <line x1={base[0] - 10 + h / 9} y1={base[1] - h} x2={base[0] + 10 - h / 9} y2={base[1] - h} />)}
+                </g>
+                <text x={base[0]} y={base[1] - 98} text-anchor="middle" class="g5">5G</text>
+                <g class="pulse"><path d={`M${base[0] + 14},${base[1] - 88} q12 -10 0 -22`} /><path d={`M${base[0] - 14},${base[1] - 88} q-12 -10 0 -22`} /></g>
+                <Fragment set:html={`<g transform="translate(${g[0]} ${g[1]})"><ellipse rx="12" ry="4" fill="#000" opacity=".12"/><rect x="-8" y="-34" width="16" height="22" rx="4" fill="#f4a300"/><path d="M-8 -26 H8 M-8 -20 H8" stroke="#fff" stroke-width="2"/><rect x="-7" y="-12" width="6" height="12" fill="#33415c"/><rect x="1" y="-12" width="6" height="12" fill="#33415c"/><circle cy="-41" r="7" fill="#8d5a3b"/><path d="M-9 -42 Q0 -54 9 -42Z" fill="#fff" stroke="#33415c" stroke-width=".8"/><rect x="-3" y="-30" width="6" height="5" fill="#d9480f"/></g>`} />
+                <g transform={`translate(${g[0] - 58} ${g[1] - 78})`}>
+                  <rect width="44" height="30" rx="6" class="card-bg" />
+                  <path d="M10 7 L18 10 V16 C18 20 14 22 10 24 C6 22 2 20 2 16 V10 Z" fill="#6d4bc8" transform="translate(2 0)" />
+                  <rect x="24" y="10" width="14" height="3" rx="1.5" fill="#15a38a" /><rect x="24" y="17" width="10" height="3" rx="1.5" fill="#2b6cd4" />
+                </g>
+              </>;
+            })()}
+            {s.key === 'colab' && (() => {
+              const b1 = box(sl.ox, sl.oy, 15, 15, 55, 45, 70);
+              const b2 = box(sl.ox, sl.oy, 80, 20, 45, 40, 38);
+              const holo = box(sl.ox, sl.oy, 85, 85, 40, 40, 60);
+              const cr = ground(s, 20, 120);
+              return <>
+                <polygon points={b1.left} class="bld-l" /><polygon points={b1.right} class="bld-r" /><polygon points={b1.top} class="bld-t" />
+                {[16, 32, 48].map((z) => { const a = P(sl.ox, sl.oy, 15, 60, z), b = P(sl.ox, sl.oy, 70, 60, z); return <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} class="window-line" />; })}
+                <polygon points={b2.left} class="bld-l" /><polygon points={b2.right} class="bld-r" /><polygon points={b2.top} class="bld-t" />
+                <polygon points={holo.left} fill="url(#holo)" stroke="#5fd3ff" /><polygon points={holo.right} fill="url(#holo)" stroke="#5fd3ff" /><polygon points={holo.top} fill="#5fd3ff" fill-opacity="0.35" stroke="#5fd3ff" />
+                {/* crane */}
+                <g class="crane">
+                  <line x1={cr[0]} y1={cr[1]} x2={cr[0]} y2={cr[1] - 150} />
+                  <line x1={cr[0] - 30} y1={cr[1] - 150} x2={cr[0] + 110} y2={cr[1] - 150} />
+                  <line x1={cr[0]} y1={cr[1] - 168} x2={cr[0] + 110} y2={cr[1] - 150} stroke-width="1.5" />
+                  <line x1={cr[0]} y1={cr[1] - 168} x2={cr[0] - 30} y2={cr[1] - 150} stroke-width="1.5" />
+                  <line x1={cr[0] + 90} y1={cr[1] - 150} x2={cr[0] + 90} y2={cr[1] - 105} stroke-width="1" />
+                  <rect x={cr[0] + 80} y={cr[1] - 105} width="20" height="6" fill="#d9480f" />
+                </g>
+                {/* floating dashboard */}
+                <g transform={`translate(${sl.ox + 50} ${sl.oy - 120})`}>
+                  <rect width="90" height="56" rx="8" class="card-bg" />
+                  <text x="10" y="17" class="mini">CoLAB 5.0</text>
+                  <rect x="10" y="25" width="60" height="5" rx="2.5" fill="#2b6cd4" />
+                  <rect x="10" y="34" width="44" height="5" rx="2.5" fill="#15a38a" />
+                  <rect x="10" y="43" width="68" height="5" rx="2.5" fill="#e07b22" />
+                </g>
+              </>;
+            })()}
+            {/* labels */}
+            <g transform={`translate(${s.x} ${s.y + s.size * S30 + 8})`}>
+              <rect x={-((lang === 'es' ? s.es : s.en).length * 3.6 + 16)} y="0" width={(lang === 'es' ? s.es : s.en).length * 7.2 + 32} height="26" rx="6" class="label-bg" />
+              <text x="0" y="17.5" text-anchor="middle" class="label">{lang === 'es' ? s.es : s.en}</text>
+            </g>
+            <g transform={`translate(${s.x} ${top - (s.key === 'colab' ? 190 : s.key === 'w50' ? 100 : 95)})`}>
+              <rect x={-(s.tag.length * 3.4 + 10)} y="-15" width={s.tag.length * 6.8 + 20} height="22" rx="11" class="tag-bg" />
+              <text x="0" y="0" text-anchor="middle" class="tagt">{s.tag}</text>
+              <text x="0" y="-22" text-anchor="middle" class="year" fill={s.color}>{s.year}</text>
+            </g>
+          </g>
+        );
+        return s.project ? <a href={path(lang, `projects/${s.project}/`)}>{content}</a> : <a href={path(lang, 'epm/')}>{content}</a>;
+      })}
+    </svg>
+  </div>
+</figure>
+
+<style>
+  .iso { margin: 0; }
+  .iso figcaption h2 { margin-bottom: 0.25rem; }
+  .iso-scroll { overflow-x: auto; margin-top: 1rem; border-radius: 24px; -webkit-overflow-scrolling: touch; }
+  svg { display: block; width: 100%; min-width: 860px; height: auto; font-family: var(--sans);
+    --iso-bg1: #eef1f7; --iso-bg2: #f8f5f0; --iso-grid: #dfe4ee; --top: #f4f6fa; --left: #c3ccdb; --right: #a9b4c7;
+    --road: #e8d9c5; --label: #1f2a3a; }
+  @media (prefers-color-scheme: dark) {
+    svg { --iso-bg1: #18202a; --iso-bg2: #11161d; --iso-grid: #222c38; --top: #2a3544; --left: #1f2833; --right: #19212b; --road: #3a3128; --label: #0b0f14; }
+  }
+  .grid-lines line { stroke: var(--iso-grid); stroke-width: 1; }
+  .road { fill: none; stroke: var(--road); stroke-width: 18; stroke-linecap: round; }
+  .road-line { fill: none; stroke: #ffffff; stroke-opacity: 0.7; stroke-width: 2; stroke-dasharray: 8 10; }
+  .shadow { fill: #000; opacity: 0.08; }
+  .face-top { fill: var(--top); }
+  .face-left { fill: var(--left); }
+  .face-right { fill: var(--right); }
+  .steel-t { fill: none; } .steel-l, .steel-r { fill: none; stroke: #33415c; stroke-width: 3; }
+  .beam { stroke: #6b7a90; stroke-width: 2; }
+  .mast, .tower line, .crane line { stroke: #33415c; stroke-width: 3; }
+  @media (prefers-color-scheme: dark) { .steel-l, .steel-r, .mast, .tower line, .crane line { stroke: #9fb0c8; } }
+  .desk-t { fill: #d9c3a5; } .desk-l { fill: #b89a76; } .desk-r { fill: #a2845f; }
+  .bld-t { fill: #e9edf4; } .bld-l { fill: #b7c6dd; } .bld-r { fill: #93a7c6; }
+  .window-line { stroke: #ffffff; stroke-width: 2; stroke-opacity: 0.8; }
+  .screen { fill: #16202e; stroke: #33415c; }
+  .card-bg { fill: var(--surface); stroke: var(--line); }
+  .mini { font: 700 10px var(--sans); fill: var(--ink); }
+  .g5 { font: 800 13px var(--sans); fill: #d9480f; }
+  .pulse path, .flow { fill: none; stroke: #d9480f; stroke-width: 2.5; stroke-linecap: round; }
+  .flow { stroke: #6d4bc8; stroke-dasharray: 5 6; }
+  .label-bg { fill: var(--label); opacity: 0.92; }
+  .label { font: 700 12.5px var(--sans); fill: #fff; }
+  .tag-bg { fill: var(--surface); stroke: var(--line); }
+  .tagt { font: 600 11.5px var(--sans); fill: var(--ink); }
+  .year { font: 800 14px var(--serif); }
+  a .station { transition: transform 0.2s; transform-box: fill-box; }
+  a:hover .station, a:focus .station { transform: translateY(-6px); }
+  a:focus-visible { outline: none; }
+  a:focus-visible .label-bg { fill: #d9480f; }
+  @media (prefers-reduced-motion: no-preference) {
+    .pulse path { animation: iso-pulse 2.4s ease-in-out infinite; }
+    .flow { animation: iso-dash 3s linear infinite; }
+    @keyframes iso-pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+    @keyframes iso-dash { to { stroke-dashoffset: -44; } }
+  }
+  @media (prefers-reduced-motion: reduce) { a:hover .station { transform: none; } }
+</style>

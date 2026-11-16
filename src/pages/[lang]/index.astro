@@ -1,0 +1,170 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import PubItem from '../../components/PubItem.astro';
+import HeroArt from '../../components/HeroArt.astro';
+import IsoJourney from '../../components/IsoJourney.astro';
+import { t, path, langs, profiles, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+
+const pubs = await getCollection('publications');
+const allProjects = await getCollection('projects');
+const flagship = allProjects.find((p) => p.id === 'construction-lab-5-0')!;
+const featured = allProjects.filter((p) => p.data.featured && p.id !== flagship.id);
+const epmProjects = allProjects.filter((p) => p.data.topics.includes('epm') && !p.data.featured);
+const keyPubs = pubs
+  .filter((p) => p.data.featured && (p.data.topics.includes('epm') || p.data.topics.includes('hdi')))
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, 5);
+const epmCount = pubs.filter((p) => p.data.topics.includes('epm') || p.data.topics.includes('hdi')).length;
+const F = flagship.data[lang];
+
+const c = {
+  es: {
+    kicker: 'Construcción 5.0 · Escuela de Construcción Civil UC',
+    title: 'Monitoreo Electrónico del Desempeño, con las personas al centro',
+    lead: 'Proyectos e investigación sobre cómo los sensores, los wearables y los datos pueden mejorar la productividad, la salud y la seguridad en faena, y sobre cómo hacerlo con los trabajadores, no sobre ellos.',
+    stats: [
+      [String(epmCount), 'publicaciones sobre EPM y HDI'],
+      ['2011', 'primer despliegue de EPM en obra (BEEBADGE)'],
+      ['5G · IoT', 'piloto Trabajador 5.0 en la UC'],
+    ],
+    epmTitle: 'EPM: medir el trabajo en faena',
+    epmBody: 'El Monitoreo Electrónico del Desempeño (EPM) convierte señales de localización, movimiento y fisiología en información útil para decidir en la obra.',
+    pillars: [
+      ['Productividad', 'Tiempos productivos, esperas, traslados y avance real.'],
+      ['Salud', 'Posturas, esfuerzo físico y fatiga.'],
+      ['Seguridad', 'Proximidad a maquinaria y zonas de riesgo.'],
+    ],
+    hdiTitle: 'HDI: los datos también son del trabajador',
+    hdiBody: 'Sin confianza, el EPM no funciona. La Interacción Humano-Datos (HDI) propone tres principios para un monitoreo ético:',
+    hdi: [
+      ['Legibilidad', 'El trabajador entiende qué se mide, cómo y para qué.'],
+      ['Agencia', 'El trabajador decide sobre sus datos y puede verlos.'],
+      ['Negociabilidad', 'El uso de los datos se acuerda y se puede revisar.'],
+    ],
+    more: 'Leer más sobre EPM y HDI',
+    flagship: 'Proyecto principal',
+    flagCta: 'Conocer CoLAB 5.0',
+    alsoTitle: 'Proyectos en curso',
+    rootsTitle: 'Quince años de EPM en terreno',
+    rootsBody: 'Las ideas de hoy vienen de despliegues reales en obras e industria desde 2011.',
+  },
+  en: {
+    kicker: 'Construction 5.0 · School of Civil Construction, UC Chile',
+    title: 'Electronic Performance Monitoring, with people at the centre',
+    lead: 'Projects and research on how sensors, wearables and data can improve productivity, health and safety on construction sites, and on how to do it with workers rather than to them.',
+    stats: [
+      [String(epmCount), 'publications on EPM and HDI'],
+      ['2011', 'first on-site EPM deployment (BEEBADGE)'],
+      ['5G · IoT', 'Worker 5.0 pilot at UC'],
+    ],
+    epmTitle: 'EPM: measuring work on site',
+    epmBody: 'Electronic Performance Monitoring (EPM) turns location, movement and physiological signals into information site teams can act on.',
+    pillars: [
+      ['Productivity', 'Productive time, waiting, travel and actual progress.'],
+      ['Health', 'Posture, physical effort and fatigue.'],
+      ['Safety', 'Proximity to plant and hazardous zones.'],
+    ],
+    hdiTitle: 'HDI: the data belongs to the worker too',
+    hdiBody: 'Without trust, EPM does not work. Human-Data Interaction (HDI) sets out three principles for ethical monitoring:',
+    hdi: [
+      ['Legibility', 'Workers understand what is measured, how and why.'],
+      ['Agency', 'Workers have a say over their data and can see it.'],
+      ['Negotiability', 'How the data is used is agreed and can be revisited.'],
+    ],
+    more: 'Read more about EPM and HDI',
+    flagship: 'Flagship project',
+    flagCta: 'Explore CoLAB 5.0',
+    alsoTitle: 'Ongoing projects',
+    rootsTitle: 'Fifteen years of EPM in the field',
+    rootsBody: 'Today\'s ideas come from real deployments on construction and industrial sites since 2011.',
+  },
+}[lang];
+---
+<Base lang={lang} active="home">
+  <div class="stripe" aria-hidden="true"></div>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">{c.kicker}</p>
+        <h1>{c.title}</h1>
+        <p class="lead">{c.lead}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={path(lang, 'projects/construction-lab-5-0/')}>{c.flagCta}</a>
+          <a class="btn btn-ghost" href={path(lang, 'epm/')}>{t(lang, 'nav.research')}</a>
+        </div>
+        <div class="stats">
+          {c.stats.map(([n, label]) => <div class="stat"><b>{n}</b><span>{label}</span></div>)}
+        </div>
+      </div>
+      <HeroArt lang={lang} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <div>
+        <h2>{c.epmTitle}</h2>
+        <p class="muted">{c.epmBody}</p>
+        <div class="pillars one">{c.pillars.map(([h, p]) => <div class="pillar"><b>{h}</b><p>{p}</p></div>)}</div>
+      </div>
+      <div>
+        <h2>{c.hdiTitle}</h2>
+        <p class="muted">{c.hdiBody}</p>
+        <div class="pillars one">{c.hdi.map(([h, p]) => <div class="pillar hdi"><b>{h}</b><p>{p}</p></div>)}</div>
+      </div>
+    </div>
+    <div class="wrap"><p style="margin-top:1.5rem"><a href={path(lang, 'epm/')}>{c.more} →</a></p></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="flag-grid">
+      <div class="flagship">
+        <p class="kicker">{c.flagship} · {flagship.data.start}–{flagship.data.end}</p>
+        <h2>{F.title}</h2>
+        <p class="lead">{F.summary}</p>
+        <p class="meta">{flagship.data.funder} · {F.role}</p>
+        <p class="meta">{flagship.data.partners}</p>
+        <a class="btn btn-primary" href={path(lang, `projects/${flagship.id}/`)}>{c.flagCta}</a>
+      </div>
+      {featured.map((p) => <ProjectCard project={p} lang={lang} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><IsoJourney lang={lang} /></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.rootsTitle}</h2>
+      <p class="muted">{c.rootsBody}</p>
+      <div class="grid">{epmProjects.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+      <p style="margin-top:1.25rem"><a href={path(lang, 'projects/')}>{t(lang, 'home.allProjects')} →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{t(lang, 'home.featuredPubs')}</h2>
+      <ul class="pub-list">{keyPubs.map((p) => <PubItem pub={p} lang={lang} />)}</ul>
+      <p style="margin-top:1.25rem"><a href={path(lang, 'publications/?topic=epm')}>{t(lang, 'home.allPubs')} →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="callout">
+        <h2>{t(lang, 'home.chile.title')}</h2>
+        <p class="prose">{t(lang, 'home.chile.body')}</p>
+        <a class="btn btn-primary" href={profiles.linkedin}>{t(lang, 'home.chile.cta')}</a>
+      </div>
+    </div>
+  </section>
+</Base>

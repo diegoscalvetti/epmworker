@@ -34,6 +34,7 @@
   featured: true
   topics: [epm, hdi, digital-twin]
   funder: "Concurso VRI – Avanza UC 2025"
+  publications: [jnl-2025-02, cnf-2024-07, cnf-2023-03, jnl-2024-05, jnl-2020-01, jnl-2020-02, cnf-2021-05, cnf-2024-08, cnf-2024-09, cnf-2021-06, jnl-2026-03, cnf-2026-01, jnl-2021-03]
   news:
     - date: "2026-10-14"
       images: ["/images/news/colab/2026-10-14-o1.jpg", "/images/news/colab/2026-10-14-o2.jpg", "/images/news/colab/2026-10-14-o3.jpg", "/images/news/colab/2026-10-14-o4.jpg"]

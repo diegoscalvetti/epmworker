@@ -14,10 +14,14 @@ const lang = Astro.params.lang as Lang;
 const d = project.data;
 const L = d[lang];
 const end = d.end === 'present' ? t(lang, 'projects.present') : d.end;
-const related = (await getCollection('publications'))
+const allPubs = await getCollection('publications');
+const related = d.publications
+  ? allPubs.filter((p) => d.publications!.includes(p.id)).sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title))
+  : allPubs
   .filter((p) => p.data.topics.some((tp) => d.topics.includes(tp) && tp !== 'other') && p.data.year >= d.start - 1 && p.data.featured)
   .sort((a, b) => b.data.year - a.data.year)
   .slice(0, 5);
+if (d.publications && related.length !== d.publications.length) throw new Error(`Unknown publication id in project ${project.id}`);
 const news = [...d.news].sort((a, b) => b.date.localeCompare(a.date));
 const fmtDate = (s: string) => {
   const [y, m, day] = s.split('-').map(Number);

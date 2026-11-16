@@ -169,4 +169,5 @@ p { margin: 0 0 1rem; }
 .news-link { font-size: 0.9rem; font-weight: 600; }
 .news-photos { display: grid; gap: 0.5rem; margin: 0.6rem 0 0.7rem; }
 .news-photos.n2 { grid-template-columns: 1fr 1fr; }
-.news-photos img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); }
+.news-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; border-radius: 8px; border: 1px solid var(--line); }
+.news-photos.n1 { max-width: 30rem; }

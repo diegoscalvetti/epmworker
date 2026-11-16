@@ -11,7 +11,7 @@
 - { id: emp-2004, line: industry, start: 2004, end: 2007, title_en: "Consultant", title_es: "Consultor", org: "Estima Mercados", side: above }
 - { id: emp-2007, line: industry, start: 2007, end: 2011, title_en: "Contract Supervisor", title_es: "Supervisor de contratos", org: "Petrobras · USD 440M refinery", side: below }
 - { id: emp-2013, line: industry, start: 2013, end: 2016, title_en: "Lead Technical Consultant", title_es: "Consultor técnico líder", org: "Petrobras · USD 600M H₂ units", side: above }
-- { id: emp-2021b, line: industry, start: 2021, end: now, title_en: "BIM Researcher", title_es: "Investigador BIM", org: "Fundação CERTI", side: below }
+- { id: emp-2021b, line: industry, start: 2021, end: 2026, title_en: "BIM Researcher", title_es: "Investigador BIM", org: "Fundação CERTI", side: below }
 - { id: emp-2011, line: ventures, start: 2011, end: 2014, title_en: "COO & Partner", title_es: "COO y socio", org: "Pheitec · BEEBADGE RTLS", side: above, project: beebadge }
 - { id: emp-2015, line: ventures, start: 2015, end: 2021, title_en: "Entrepreneur", title_es: "Emprendedor", org: "Worker 4.0® · LEAPS", side: below, project: worker-4-0 }
 - { id: emp-2021, line: ventures, start: 2021, end: 2022, title_en: "Researcher, DPP", title_es: "Investigador, DPP", org: "GrowingCircle · NTNU", side: above, project: growingcircle }

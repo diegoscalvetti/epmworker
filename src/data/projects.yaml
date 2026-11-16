@@ -34,6 +34,86 @@
   featured: true
   topics: [epm, hdi, digital-twin]
   funder: "Concurso VRI – Avanza UC 2025"
+  news:
+    - date: "2026-10-14"
+      images: ["/images/news/colab/2026-10-14-1.jpg", "/images/news/colab/2026-10-14-2.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7516116488827772928/"
+      en:
+        title: "Opening the new CoLAB 5.0 facilities"
+        text: "After an Avanza UC 2025 feedback session with the principal investigators and the Vice-Rectorate for Research, we showed colleagues from other UC schools around the new CoLAB 5.0 facilities at the School of Civil Construction."
+      es:
+        title: "Presentamos las nuevas instalaciones de CoLAB 5.0"
+        text: "Tras una sesión de retroalimentación de Avanza UC 2025 con los investigadores principales y la Vicerrectoría de Investigación, recorrimos con colegas de otras escuelas UC las nuevas instalaciones de CoLAB 5.0 en la Escuela de Construcción Civil."
+    - date: "2026-07-16"
+      images: ["/images/news/colab/2026-07-16-1.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7483448627600769024/"
+      en:
+        title: "CoLAB 5.0 technical workshop at EC3 2026"
+        text: "With Dimosthenis Kifokeris and Pablo Martinez Rodriguez, we led a technical workshop at the European Conference on Computing in Construction on Electronic Performance Monitoring and how Human-Data Interaction can make it work in practice."
+      es:
+        title: "Taller técnico de CoLAB 5.0 en EC3 2026"
+        text: "Junto a Dimosthenis Kifokeris y Pablo Martinez Rodriguez, dirigimos un taller técnico en la European Conference on Computing in Construction sobre Monitoreo Electrónico del Desempeño y cómo la Interacción Humano-Datos permite implementarlo."
+    - date: "2026-07-02"
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7478442309890797568/"
+      en:
+        title: "Announcing the EC3 2026 workshop"
+        text: "CoLAB 5.0 takes its work on digital tools for safer, healthier and more productive sites to the European Council on Computing in Construction, with thanks to the UC research team behind the project."
+      es:
+        title: "Anuncio del taller en EC3 2026"
+        text: "CoLAB 5.0 lleva su trabajo sobre herramientas digitales para obras más seguras, saludables y productivas al European Council on Computing in Construction, con agradecimiento al equipo de investigación UC del proyecto."
+    - date: "2026-06-15"
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7472294891835023360/"
+      en:
+        title: "Survey: how construction workers see monitoring technologies"
+        text: "An anonymous 10-minute survey for construction workers on how their role, experience and views of technology shape the acceptance of performance-monitoring systems on site."
+      es:
+        title: "Encuesta: cómo ven los trabajadores las tecnologías de monitoreo"
+        text: "Encuesta anónima de 10 minutos para trabajadores de la construcción sobre cómo su rol, su experiencia y su percepción de la tecnología influyen en la aceptación de los sistemas de monitoreo del desempeño en obra."
+    - date: "2026-06-05"
+      images: ["/images/news/colab/2026-06-05-1.jpg", "/images/news/colab/2026-06-05-2.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7468612799917711360/"
+      en:
+        title: "Inviting partners at the IC2 brokerage event"
+        text: "At the close of IC2, an open invitation to join CoLAB 5.0: an international network of digital laboratories sharing knowledge on EPM and HDI on construction sites."
+      es:
+        title: "Invitación a colaborar en el brokerage de IC2"
+        text: "Al cierre de IC2, una invitación abierta a sumarse a CoLAB 5.0: una red internacional de laboratorios digitales que comparten conocimiento sobre EPM y HDI en obra."
+    - date: "2026-06-04"
+      images: ["/images/news/colab/2026-06-04-1.jpg", "/images/news/colab/2026-06-04-2.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7468318731706978305/"
+      en:
+        title: "Presenting CoLAB 5.0 at IC2"
+        text: "At the Innovation Industry Construction Congress, many EPM projects were on show. Our message: Human-Data Interaction is the key enabler and has to be built in from the start."
+      es:
+        title: "Presentación de CoLAB 5.0 en IC2"
+        text: "En el Innovation Industry Construction Congress se presentaron muchos proyectos de EPM. Nuestro mensaje: la Interacción Humano-Datos es el habilitador clave y debe integrarse desde el inicio."
+    - date: "2026-04-03"
+      images: ["/images/news/colab/2026-04-03-1.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7445780613963399168/"
+      en:
+        title: "Brainstorming with co-researcher Pablo Martinez Rodriguez"
+        text: "A working session on supporting the ethical and effective adoption of digital technologies on Chilean construction sites."
+      es:
+        title: "Sesión de trabajo con el co-investigador Pablo Martinez Rodriguez"
+        text: "Una sesión para impulsar la adopción ética y efectiva de tecnologías digitales en las obras chilenas."
+    - date: "2026-04-01"
+      images: ["/images/news/colab/2026-04-01-1.jpg", "/images/news/colab/2026-04-01-2.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7445117373910597632/"
+      en:
+        title: "Keynote at DFBI: HDI as the enabler of EPM"
+        text: "A keynote at the International Conference on Digital Frontiers in Buildings and Infrastructure on human-centred, transparent and useful monitoring systems, featuring CoLAB 5.0 as it got under way."
+      es:
+        title: "Conferencia plenaria en DFBI: HDI como habilitador del EPM"
+        text: "Conferencia plenaria en la International Conference on Digital Frontiers in Buildings and Infrastructure sobre sistemas de monitoreo centrados en las personas, transparentes y útiles, con CoLAB 5.0 recién en marcha."
+    - date: "2025-12-23"
+      images: ["/images/news/colab/2025-12-23-1.jpg"]
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7409291483721326592/"
+      en:
+        title: "CoLAB 5.0 awarded in the Avanza UC 2025 competition"
+        text: "The project was selected in a highly competitive UC call for high-impact research, with the support of the School of Civil Construction."
+      es:
+        title: "CoLAB 5.0 adjudicado en el Concurso Avanza UC 2025"
+        text: "El proyecto fue seleccionado en una convocatoria UC muy competitiva de investigación de impacto, con el apoyo de la Escuela de Construcción Civil."
   partners: "ECC-UC, DIGC-UC, DECON-UC, Chalmers University, Northumbria University, EC3, University of Turin, University of Salford, Universidad Austral, Universidade Federal da Bahia, GEQUALTEC/CONSTRUCT, LEAPS and industry partners"
   en:
     title: "CoLAB 5.0"

@@ -46,6 +46,9 @@ export const ui = {
     'projects.back': 'Volver a proyectos',
     'projects.related': 'Publicaciones relacionadas',
     'projects.present': 'presente',
+    'projects.news': 'Novedades',
+    'projects.news.lead': 'Avances publicados en LinkedIn.',
+    'projects.news.open': 'Ver en LinkedIn',
     'pubs.title': 'Publicaciones',
     'pubs.lead':
       'Artículos, ponencias y tesis. Los títulos se muestran en su idioma original. Los enlaces llevan al DOI o a la versión publicada.',
@@ -118,6 +121,9 @@ export const ui = {
     'projects.back': 'Back to projects',
     'projects.related': 'Related publications',
     'projects.present': 'present',
+    'projects.news': 'News',
+    'projects.news.lead': 'Updates shared on LinkedIn.',
+    'projects.news.open': 'Read on LinkedIn',
     'pubs.title': 'Publications',
     'pubs.lead':
       'Articles, conference papers and theses. Titles appear in their original language. Links go to the DOI or the published version.',

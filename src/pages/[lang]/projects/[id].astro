@@ -18,6 +18,12 @@ const related = (await getCollection('publications'))
   .filter((p) => p.data.topics.some((tp) => d.topics.includes(tp) && tp !== 'other') && p.data.year >= d.start - 1 && p.data.featured)
   .sort((a, b) => b.data.year - a.data.year)
   .slice(0, 5);
+const news = [...d.news].sort((a, b) => b.date.localeCompare(a.date));
+const fmtDate = (s: string) => {
+  const [y, m, day] = s.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, (m || 1) - 1, day || 1));
+  return new Intl.DateTimeFormat(lang === 'es' ? 'es-CL' : 'en-GB', { year: 'numeric', month: 'long', ...(day ? { day: 'numeric' } : {}), timeZone: 'UTC' }).format(dt);
+};
 ---
 <Base lang={lang} title={L.title} description={L.summary} route={`projects/${project.id}/`} active="projects">
   <section class="section">
@@ -34,6 +40,27 @@ const related = (await getCollection('publications'))
       <div class="tags" style="margin-bottom:1.5rem">{d.topics.map((tp) => <span class={`tag ${tp}`}>{t(lang, `topic.${tp}`)}</span>)}</div>
       <Fragment set:html={marked.parse(L.body)} />
       {d.link && <p><a href={d.link}>{t(lang, 'projects.link')} →</a></p>}
+      {news.length > 0 && (
+        <>
+          <h2 id="news">{t(lang, 'projects.news')}</h2>
+          <p class="muted">{t(lang, 'projects.news.lead')}</p>
+          <ol class="news-list">
+            {news.map((n) => (
+              <li class="news-item">
+                <time datetime={n.date}>{fmtDate(n.date)}</time>
+                <h3>{n.url ? <a href={n.url} rel="noopener">{n[lang].title}</a> : n[lang].title}</h3>
+                {n.images.length > 0 && (
+                  <div class={`news-photos n${Math.min(n.images.length, 2)}`}>
+                    {n.images.slice(0, 2).map((src) => <img src={src} alt={n[lang].title} loading="lazy" decoding="async" />)}
+                  </div>
+                )}
+                <p>{n[lang].text}</p>
+                {n.url && <a class="news-link" href={n.url} rel="noopener">{t(lang, 'projects.news.open')} →</a>}
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
       {related.length > 0 && (
         <>
           <h2>{t(lang, 'projects.related')}</h2>

@@ -1,6 +1,6 @@
 ---
 // Isometric illustration: the EPM story as floating platforms joined by a path,
-// from the first RTLS badges (2011) to Construction LAB 5.0 (2026–27).
+// from the first RTLS badges (2011) to CoLAB 5.0 (2026–27).
 import { path, type Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -35,7 +35,7 @@ const stations: Station[] = [
   { key: 'lab', x: 570, y: 470, size: 110, year: '2017–21', tag: '#machinelearning', en: 'PhD lab · activity recognition', es: 'Lab doctoral · reconocimiento de actividades', project: 'phd-epm-construction-workers', color: '#2b6cd4' },
   { key: 'hdi', x: 770, y: 370, size: 110, year: '2021–24', tag: '#HDI', en: 'Human-Data Interaction', es: 'Interacción Humano-Datos', color: '#6d4bc8' },
   { key: 'w50', x: 940, y: 465, size: 110, year: '2026', tag: '#5G', en: 'Worker 5.0 · ethical EPM pilot', es: 'Trabajador 5.0 · piloto de EPM ético', project: 'trabajador-5-0', color: '#d9480f' },
-  { key: 'colab', x: 1080, y: 220, size: 150, year: '2026–27', tag: '#Construction5.0', en: 'Construction LAB 5.0', es: 'Construction LAB 5.0', project: 'construction-lab-5-0', color: '#d9480f' },
+  { key: 'colab', x: 1080, y: 220, size: 150, year: '2026–27', tag: '#Construction5.0', en: 'CoLAB 5.0', es: 'CoLAB 5.0', project: 'colab-5-0', color: '#d9480f' },
 ];
 const byKey = Object.fromEntries(stations.map((s) => [s.key, s]));
 

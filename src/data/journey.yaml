@@ -16,7 +16,7 @@
 - { id: emp-2015, line: ventures, start: 2015, end: 2021, title_en: "Entrepreneur", title_es: "Emprendedor", org: "Worker 4.0® · LEAPS", side: below, project: worker-4-0 }
 - { id: emp-2021, line: ventures, start: 2021, end: 2022, title_en: "Researcher, DPP", title_es: "Investigador, DPP", org: "GrowingCircle · NTNU", side: above, project: growingcircle }
 - { id: emp-2022, line: ventures, start: 2022, end: 2025, title_en: "Researcher", title_es: "Investigador", org: "Construction Institute, U.Porto", side: below }
-- { id: prj-2026, line: ventures, start: 2026, end: 2027, title_en: "PI, CoLAB 5.0", title_es: "IP, CoLAB 5.0", org: "Avanza UC", side: above, project: construction-lab-5-0 }
+- { id: prj-2026, line: ventures, start: 2026, end: 2027, title_en: "PI, CoLAB 5.0", title_es: "IP, CoLAB 5.0", org: "Avanza UC", side: above, project: colab-5-0 }
 - { id: aff-2020, line: academia, start: 2020, end: now, title_en: "HDI Committee Chair", title_es: "Presidente Comité HDI", org: "EC3", side: above }
-- { id: emp-2022b, line: academia, start: 2022, end: now, title_en: "Invited Asst. Professor", title_es: "Profesor Asistente Invitado", org: "FEUP · MBUILD", side: below }
+- { id: emp-2022b, line: academia, start: 2022, end: 2026, title_en: "Invited Asst. Professor", title_es: "Profesor Asistente Invitado", org: "FEUP · MBUILD", side: below }
 - { id: emp-2025, line: academia, start: 2025, end: now, title_en: "Assistant Professor", title_es: "Profesor Asistente", org: "School of Civil Construction, UC", side: above }

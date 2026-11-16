@@ -12,7 +12,7 @@ const lang = Astro.params.lang as Lang;
 
 const pubs = await getCollection('publications');
 const allProjects = await getCollection('projects');
-const flagship = allProjects.find((p) => p.id === 'construction-lab-5-0')!;
+const flagship = allProjects.find((p) => p.id === 'colab-5-0')!;
 const featured = allProjects.filter((p) => p.data.featured && p.id !== flagship.id);
 const epmProjects = allProjects.filter((p) => p.data.topics.includes('epm') && !p.data.featured);
 const keyPubs = pubs
@@ -94,7 +94,7 @@ const c = {
         <h1>{c.title}</h1>
         <p class="lead">{c.lead}</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href={path(lang, 'projects/construction-lab-5-0/')}>{c.flagCta}</a>
+          <a class="btn btn-primary" href={path(lang, 'projects/colab-5-0/')}>{c.flagCta}</a>
           <a class="btn btn-ghost" href={path(lang, 'epm/')}>{t(lang, 'nav.research')}</a>
         </div>
         <div class="stats">

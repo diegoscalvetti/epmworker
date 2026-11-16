@@ -10,7 +10,7 @@
   featured: true
   topics: [epm, hdi]
   funder: "ClaroLab · Centro de Innovación UC Anacleto Angelini & Claro Empresas"
-  partners: "ECC-UC, ClaroLab, Construction LAB 5.0"
+  partners: "ECC-UC, ClaroLab, CoLAB 5.0"
   en:
     title: "Worker 5.0: an ethical EPM demonstrator enabled by 5G/IoT"
     role: "Principal investigator"
@@ -28,7 +28,7 @@
 
       El piloto usa la conectividad experimental de ClaroLab (5G SA/NSA, NB-IoT, LTE-M) y su capacidad de cómputo avanzado. Aplica los principios de Interacción Humano-Datos (HDI) de investigaciones anteriores: qué se mide, quién lo ve y para qué se usa se acuerda con la cuadrilla antes de recolectar cualquier dato.
 
-- id: construction-lab-5-0
+- id: colab-5-0
   start: 2026
   end: 2027
   featured: true
@@ -36,19 +36,19 @@
   funder: "Concurso VRI – Avanza UC 2025"
   partners: "ECC-UC, DIGC-UC, DECON-UC, Chalmers University, Northumbria University, EC3, University of Turin, University of Salford, Universidad Austral, Universidade Federal da Bahia, GEQUALTEC/CONSTRUCT, LEAPS and industry partners"
   en:
-    title: "Construction LAB 5.0 (CoLAB 5.0)"
+    title: "CoLAB 5.0"
     role: "Principal investigator"
     summary: "Digital tools to improve productivity, health and safety on construction sites, bringing together Chilean and international partners in a living lab at UC."
     body: |
-      Construction LAB 5.0 is a 12-month programme to develop and test digital tools for construction sites, with a focus on the people who do the work.
+      CoLAB 5.0 is a 12-month programme to develop and test digital tools for construction sites, with a focus on the people who do the work.
 
       It connects Electronic Performance Monitoring, Human-Data Interaction and incremental Digital Twins, and links the School of Civil Construction at UC with universities and companies in Europe and Latin America.
   es:
-    title: "Construction LAB 5.0 (CoLAB 5.0)"
+    title: "CoLAB 5.0"
     role: "Investigador principal"
     summary: "Herramientas digitales para mejorar la productividad, la salud y la seguridad en faena, reuniendo socios chilenos e internacionales en un laboratorio vivo en la UC."
     body: |
-      Construction LAB 5.0 es un programa de 12 meses para desarrollar y probar herramientas digitales en obras de construcción, con foco en las personas que ejecutan el trabajo.
+      CoLAB 5.0 es un programa de 12 meses para desarrollar y probar herramientas digitales en obras de construcción, con foco en las personas que ejecutan el trabajo.
 
       Conecta el Monitoreo Electrónico del Desempeño, la Interacción Humano-Datos y los Gemelos Digitales incrementales, y vincula a la Escuela de Construcción Civil UC con universidades y empresas de Europa y Latinoamérica.
 

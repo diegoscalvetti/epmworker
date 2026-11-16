@@ -33,7 +33,7 @@ export const ui = {
     'home.allPubs': 'Todas las publicaciones',
     'home.chile.title': 'EPM para la construcción chilena',
     'home.chile.body':
-      'Construction LAB 5.0 y Trabajador 5.0 se desarrollan en la Escuela de Construcción Civil UC, en Santiago. Buscamos constructoras, mutualidades, gremios, trabajadores y estudiantes que quieran probar el EPM en obras chilenas de forma ética y útil.',
+      'CoLAB 5.0 y Trabajador 5.0 se desarrollan en la Escuela de Construcción Civil UC, en Santiago. Buscamos constructoras, mutualidades, gremios, trabajadores y estudiantes que quieran probar el EPM en obras chilenas de forma ética y útil.',
     'home.chile.cta': 'Conversemos',
     'projects.title': 'Proyectos',
     'projects.lead':
@@ -105,7 +105,7 @@ export const ui = {
     'home.allPubs': 'All publications',
     'home.chile.title': 'EPM for Chilean construction',
     'home.chile.body':
-      'Construction LAB 5.0 and Worker 5.0 are based at the School of Civil Construction, UC, in Santiago. We are looking for contractors, safety organisations, industry bodies, workers and students who want to try EPM on Chilean sites in an ethical and useful way.',
+      'CoLAB 5.0 and Worker 5.0 are based at the School of Civil Construction, UC, in Santiago. We are looking for contractors, safety organisations, industry bodies, workers and students who want to try EPM on Chilean sites in an ethical and useful way.',
     'home.chile.cta': 'Get in touch',
     'projects.title': 'Projects',
     'projects.lead':

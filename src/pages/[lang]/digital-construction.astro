@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import PubItem from '../../components/PubItem.astro';
+import { t, path, langs, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+
+const isDigital = (topics: string[]) => topics.includes('dpp') || topics.includes('digital-twin');
+const projects = (await getCollection('projects'))
+  .filter((p) => isDigital(p.data.topics))
+  .sort((a, b) => b.data.start - a.data.start);
+const pubs = (await getCollection('publications'))
+  .filter((p) => isDigital(p.data.topics))
+  .sort((a, b) => b.data.year - a.data.year);
+
+const c = {
+  es: {
+    kicker: 'DPP · DBL · DTw',
+    title: 'Conectando la digitalización de la industria de la construcción',
+    lead: 'Los Pasaportes Digitales de Producto, los Libros Digitales del Edificio y los Gemelos Digitales suelen discutirse por separado. Mi investigación los trata como una sola cadena de información que acompaña a los materiales hasta el edificio, durante su uso y de vuelta a nuevos ciclos.',
+    p1: 'La construcción se está digitalizando en muchos frentes a la vez: modelos BIM, datos de productos, sensores en obra y registros normativos. La brecha está en la conexión entre ellos. Los datos que se generan en una etapa rara vez sirven en la siguiente, y gran parte se pierde al entregar el proyecto.',
+    pillarsTitle: 'Tres piezas de una misma cadena',
+    pillars: [
+      ['Pasaporte Digital de Producto (DPP)', 'Un registro estructurado y legible por máquinas de un producto o material: composición, origen, desempeño, huella ambiental y cómo reutilizarlo o reciclarlo. La Unión Europea lo está haciendo obligatorio mediante el Reglamento de Ecodiseño de Productos Sostenibles y el nuevo Reglamento de Productos de Construcción.'],
+      ['Libro Digital del Edificio (DBL)', 'Un repositorio compartido con los datos de un edificio durante toda su vida: diseño, construcción, energía, renovaciones e inspecciones. Reúne los pasaportes de los productos instalados y conserva la información cuando cambian los propietarios, administradores y contratistas.'],
+      ['Gemelo Digital (DTw)', 'Una representación virtual vinculada al activo real y actualizada con datos de obra y operación. En lugar de un modelo único y costoso, propongo Gemelos Digitales incrementales, que crecen según las preguntas que el mandante o la constructora necesitan responder.'],
+    ],
+    chainTitle: 'Cómo se conectan',
+    chain: 'Las plantillas de datos (EN ISO 23387) dan a los productos un lenguaje común. Los pasaportes llevan esos datos al libro del edificio. El libro alimenta al gemelo digital, y el gemelo, junto con datos de cómo se ejecuta el trabajo, apoya decisiones de productividad, renovación y circularidad. Al final de la vida útil, la información vuelve a los materiales para su siguiente ciclo.',
+    diagram: { dpp: 'Producto', dbl: 'Edificio', dtw: 'Operación', epm: 'Personas (EPM)', loop: 'Reutilización y reciclaje' },
+    epmTitle: 'Dónde entra el EPM',
+    epm: 'Quienes construyen también forman parte de la cadena de datos. En la construcción industrializada en madera, exploramos con expertos cómo los pasaportes, los libros del edificio, el Monitoreo Electrónico del Desempeño y los gemelos digitales pueden funcionar como un solo marco.',
+    epmLink: 'Leer el artículo (Buildings, 2026)',
+    chileTitle: '¿Por qué importa en Chile?',
+    chile: 'Chile ha impulsado BIM en proyectos públicos a través de Planbim y cuenta con una Hoja de Ruta RCD y Economía Circular en Construcción al 2035. Conectar esos esfuerzos con pasaportes y libros digitales permitiría trazar materiales, reducir residuos y mantener la información de los edificios a lo largo de su vida. Además, los productores chilenos que venden en Europa, entre ellos la industria de la madera, deberán entregar pasaportes digitales a medida que esas exigencias entren en vigor.',
+    projectsTitle: 'Proyectos',
+    pubsTitle: 'Publicaciones sobre DPP, DBL y Gemelos Digitales',
+    allPubs: 'Todas las publicaciones',
+  },
+  en: {
+    kicker: 'DPP · DBL · DTw',
+    title: 'Connecting the digitalisation of the construction industry',
+    lead: 'Digital Product Passports, Digital Building Logbooks and Digital Twins are usually discussed separately. My research treats them as one chain of information that follows materials into a building, through its use and back into new cycles.',
+    p1: 'Construction is going digital on many fronts at once: BIM models, product data, site sensors and regulatory records. The gap lies in the connections between them. Data produced at one stage is rarely usable at the next, and much of it is lost when a project is handed over.',
+    pillarsTitle: 'Three parts of one chain',
+    pillars: [
+      ['Digital Product Passport (DPP)', 'A structured, machine-readable record of a product or material: composition, origin, performance, environmental footprint and how it can be reused or recycled. The EU is making passports mandatory through the Ecodesign for Sustainable Products Regulation and the new Construction Products Regulation.'],
+      ['Digital Building Logbook (DBL)', 'A shared repository for a building\'s data over its whole life: design, construction, energy, renovations and inspections. It brings together the passports of the products installed and keeps the record when owners, managers and contractors change.'],
+      ['Digital Twin (DTw)', 'A virtual representation linked to the real asset and updated with data from site and operation. Rather than a single, costly model, I propose incremental Digital Twins that grow with the questions the client or contractor needs to answer.'],
+    ],
+    chainTitle: 'How they connect',
+    chain: 'Data templates (EN ISO 23387) give products a common language. Passports carry that data into the building logbook. The logbook feeds the Digital Twin, and the twin, together with data on how the work is carried out, supports decisions on productivity, renovation and circularity. At end of life, the information goes back to the materials for their next cycle.',
+    diagram: { dpp: 'Product', dbl: 'Building', dtw: 'Operation', epm: 'People (EPM)', loop: 'Reuse and recycling' },
+    epmTitle: 'Where EPM fits in',
+    epm: 'The people who build are part of the data chain too. In industrialised timber construction, we worked with experts to explore how passports, building logbooks, Electronic Performance Monitoring and Digital Twins can work as a single framework.',
+    epmLink: 'Read the article (Buildings, 2026)',
+    chileTitle: 'Why it matters for Chile',
+    chile: 'Chile has driven BIM in public projects through Planbim and has a roadmap for construction and demolition waste and circular construction to 2035. Linking those efforts with passports and digital logbooks would make it possible to trace materials, cut waste and keep building information throughout a building\'s life. Chilean producers selling into Europe, the timber industry among them, will also need to provide digital passports as those requirements come into force.',
+    projectsTitle: 'Projects',
+    pubsTitle: 'Publications on DPP, DBL and Digital Twins',
+    allPubs: 'All publications',
+  },
+}[lang];
+const D = c.diagram;
+---
+<Base lang={lang} title={t(lang, 'nav.digital')} description={c.lead} route="digital-construction/" active="digital">
+  <section class="section">
+    <div class="wrap prose">
+      <p class="kicker">{c.kicker}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+      <p>{c.p1}</p>
+      <h2>{c.pillarsTitle}</h2>
+    </div>
+    <div class="wrap">
+      <div class="pillars">{c.pillars.map(([h, p]) => <div class="pillar"><b>{h}</b><p>{p}</p></div>)}</div>
+    </div>
+    <div class="wrap prose">
+      <h2>{c.chainTitle}</h2>
+      <p>{c.chain}</p>
+    </div>
+    <div class="wrap">
+      <figure class="chain" aria-label={c.chainTitle}>
+        <svg viewBox="0 0 720 230" role="img">
+          <title>{`${D.dpp} → ${D.dbl} → ${D.dtw}; ${D.epm}; ${D.loop}`}</title>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+            </marker>
+          </defs>
+          <g class="node">
+            <rect x="20" y="40" width="180" height="80" rx="12" />
+            <text x="110" y="74" class="abbr">DPP</text>
+            <text x="110" y="100">{D.dpp}</text>
+          </g>
+          <g class="node">
+            <rect x="270" y="40" width="180" height="80" rx="12" />
+            <text x="360" y="74" class="abbr">DBL</text>
+            <text x="360" y="100">{D.dbl}</text>
+          </g>
+          <g class="node">
+            <rect x="520" y="40" width="180" height="80" rx="12" />
+            <text x="610" y="74" class="abbr">DTw</text>
+            <text x="610" y="100">{D.dtw}</text>
+          </g>
+          <g class="node epm">
+            <rect x="520" y="160" width="180" height="50" rx="12" />
+            <text x="610" y="191">{D.epm}</text>
+          </g>
+          <g class="link">
+            <line x1="200" y1="80" x2="266" y2="80" marker-end="url(#arr)" />
+            <line x1="450" y1="80" x2="516" y2="80" marker-end="url(#arr)" />
+            <line x1="610" y1="160" x2="610" y2="124" marker-end="url(#arr)" />
+            <path d="M610,40 C610,18 110,18 110,36" fill="none" stroke-dasharray="5 5" marker-end="url(#arr)" />
+          </g>
+          <text x="360" y="14" class="loop">{D.loop}</text>
+        </svg>
+      </figure>
+    </div>
+    <div class="wrap prose">
+      <div class="callout">
+        <h2 style="margin-top:0">{c.epmTitle}</h2>
+        <p>{c.epm}</p>
+        <p style="margin:0"><a href="https://doi.org/10.3390/buildings16214411">{c.epmLink} →</a> · <a href={path(lang, 'epm/')}>{t(lang, 'nav.research')} →</a></p>
+      </div>
+      <h2>{c.chileTitle}</h2>
+      <p>{c.chile}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.projectsTitle}</h2>
+      <div class="grid">{projects.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{c.pubsTitle}</h2>
+      <ul class="pub-list">{pubs.map((p) => <PubItem pub={p} lang={lang} />)}</ul>
+      <p style="margin-top:1.25rem"><a href={path(lang, 'publications/')}>{c.allPubs} →</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .chain { margin: 1.5rem 0 2rem; color: var(--muted); }
+  .chain svg { width: 100%; height: auto; max-width: 52rem; display: block; margin: 0 auto; }
+  .node rect { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+  .node.epm rect { stroke: #6d4bc8; stroke-dasharray: 0; }
+  .node text { fill: var(--ink); text-anchor: middle; font-size: 15px; }
+  .node text.abbr { font-family: var(--serif); font-weight: 700; font-size: 22px; }
+  .link line, .link path { stroke: currentColor; stroke-width: 2; }
+  .loop { fill: var(--muted); text-anchor: middle; font-size: 13px; font-style: italic; }
+</style>

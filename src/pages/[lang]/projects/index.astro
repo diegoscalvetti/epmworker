@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import ProjectCard from '../../../components/ProjectCard.astro';
-import { t, langs, type Lang } from '../../../i18n/ui';
+import { t, path, langs, type Lang } from '../../../i18n/ui';
 
 export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
 const lang = Astro.params.lang as Lang;
@@ -22,6 +22,7 @@ const rest = projects.filter((p) => !p.data.topics.includes('epm'));
       <h2 style="margin-top:2.5rem">{lang === 'es' ? 'EPM y HDI' : 'EPM & HDI'}</h2>
       <div class="grid">{epm.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
       <h2 style="margin-top:3rem">{lang === 'es' ? 'Transformación digital de la construcción' : 'Digital transformation of construction'}</h2>
+      <p class="muted"><a href={path(lang, 'digital-construction/')}>{lang === 'es' ? 'Pasaportes Digitales de Producto, Libros Digitales del Edificio y Gemelos Digitales' : 'Digital Product Passports, Digital Building Logbooks and Digital Twins'} →</a></p>
       <div class="grid">{rest.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
     </div>
   </section>

@@ -8,7 +8,7 @@ interface Props {
   description?: string;
   /** Path after the language prefix, e.g. 'projects/'. Same in both languages. */
   route?: string;
-  active?: 'home' | 'research' | 'projects' | 'publications' | 'about';
+  active?: 'home' | 'research' | 'digital' | 'projects' | 'publications' | 'about';
 }
 const { lang, title, description, route = '', active } = Astro.props;
 const other = otherLang(lang);
@@ -19,6 +19,7 @@ const canonical = new URL(path(lang, route), Astro.site);
 const nav = [
   { key: 'home', href: path(lang), label: t(lang, 'nav.home') },
   { key: 'research', href: path(lang, 'epm/'), label: t(lang, 'nav.research') },
+  { key: 'digital', href: path(lang, 'digital-construction/'), label: t(lang, 'nav.digital') },
   { key: 'projects', href: path(lang, 'projects/'), label: t(lang, 'nav.projects') },
   { key: 'publications', href: path(lang, 'publications/'), label: t(lang, 'nav.publications') },
   { key: 'about', href: path(lang, 'about/'), label: t(lang, 'nav.about') },
@@ -53,7 +54,7 @@ const year = new Date().getFullYear();
       url: 'https://epmworker.com/',
       image: 'https://epmworker.com/images/diego-calvetti.jpg',
       sameAs: [profiles.orcid, profiles.scholar, profiles.scopus, profiles.linkedin, profiles.researchgate],
-      knowsAbout: ['Electronic Performance Monitoring', 'Human-Data Interaction', 'Construction 5.0', 'Digital Twins', 'Digital Product Passports'],
+      knowsAbout: ['Electronic Performance Monitoring', 'Human-Data Interaction', 'Construction 5.0', 'Digital Twins', 'Digital Product Passports', 'Digital Building Logbooks'],
     })} />
   </head>
   <body>
